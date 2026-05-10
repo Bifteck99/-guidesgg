@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mythique → Légendaire — Guide Ranked Brawl Stars | GuidesGG</title>
+<meta name="description" content="Comment passer de Mythique à Légendaire en ranked Brawl Stars : phase de ban, phase de pick, stratégies par mode. Guide complet par un joueur avancé.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #08080f;
+  --bg2: #0f0f1a;
+  --bg3: #16161f;
+  --border: #1f1f2e;
+  --border2: #2a2a3a;
+  --text: #f0f0ff;
+  --text-dim: #666680;
+  --text-mid: #9999bb;
+  --mythic: #ff6b9d;
+  --legend: #ffd700;
+  --legend2: #ffaa00;
+  --blue: #4fc3f7;
+  --green: #69f0ae;
+  --red: #ff5252;
+  --purple: #b388ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 56px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(8,8,15,0.94);
+  backdrop-filter: blur(12px);
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-logo span { color: #e8ff00; }
+
+.nav-back {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--text); }
+
+.nav-game-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--mythic);
+  border: 1px solid var(--mythic);
+  padding: 0.25rem 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* HERO */
+.hero {
+  padding: 7rem 2.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 70% at 80% 50%, rgba(255,107,157,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 10% 60%, rgba(255,215,0,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.rank-from {
+  background: rgba(255,107,157,0.15);
+  color: var(--mythic);
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(255,107,157,0.3);
+}
+
+.rank-arrow { color: var(--text-dim); font-size: 0.8rem; }
+
+.rank-to {
+  background: rgba(255,215,0,0.15);
+  color: var(--legend);
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(255,215,0,0.3);
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  max-width: 800px;
+  margin-bottom: 1.5rem;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--legend);
+  -webkit-text-stroke: 1px var(--legend2);
+}
+
+.hero-meta {
+  display: flex;
+  gap: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+}
+
+.hero-meta span { color: var(--text-mid); }
+
+/* TABLE OF CONTENTS */
+.toc {
+  max-width: 860px;
+  margin: 3rem auto;
+  padding: 0 2.5rem;
+}
+
+.toc-inner {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+}
+
+.toc-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+.toc-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toc-list li a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--text-mid);
+  font-size: 0.88rem;
+  transition: color 0.15s;
+}
+
+.toc-list li a:hover { color: var(--text); }
+
+.toc-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  min-width: 20px;
+}
+
+/* MAIN */
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2.5rem 6rem;
+}
+
+/* PHASE BLOCK */
+.phase {
+  margin-bottom: 4rem;
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.phase-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--border2);
+}
+
+.phase-info { flex: 1; }
+
+.phase-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 0.3rem;
+}
+
+.phase-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.phase-title.ban { color: var(--red); }
+.phase-title.pick { color: var(--blue); }
+.phase-title.combat { color: var(--green); }
+.phase-title.tips { color: var(--legend); }
+
+/* SECTION */
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.section-title.red::before { background: var(--red); }
+.section-title.blue::before { background: var(--blue); }
+.section-title.green::before { background: var(--green); }
+.section-title.gold::before { background: var(--legend); }
+.section-title.purple::before { background: var(--purple); }
+
+p {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  margin-bottom: 1rem;
+}
+
+/* RULE CARDS */
+.rules {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rule-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: border-color 0.2s;
+}
+
+.rule-card:hover { border-color: var(--border2); }
+
+.rule-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.rule-content { flex: 1; }
+
+.rule-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.rule-desc {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* BRAWLER TABLE */
+.brawler-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin-bottom: 1rem;
+}
+
+.brawler-table th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.brawler-table td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-mid);
+  vertical-align: top;
+}
+
+.brawler-table tr:hover td { background: var(--bg2); }
+
+.brawler-name {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.88rem;
+}
+
+.winrate {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.wr-high { color: var(--green); }
+.wr-mid { color: var(--legend); }
+.wr-low { color: var(--red); }
+
+.ban-rate {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.br-high { color: var(--red); }
+.br-mid { color: var(--legend2); }
+
+/* MAP CARDS */
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.map-card {
+  background: var(--bg2);
+  padding: 1.25rem;
+  transition: background 0.15s;
+}
+
+.map-card:hover { background: var(--bg3); }
+
+.map-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.map-mode {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.mode-brawlball { background: rgba(79,195,247,0.15); color: var(--blue); }
+.mode-zone { background: rgba(105,240,174,0.15); color: var(--green); }
+.mode-heist { background: rgba(255,82,82,0.15); color: var(--red); }
+.mode-hotzone { background: rgba(179,136,255,0.15); color: var(--purple); }
+
+.map-picks {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.map-picks strong { color: var(--text-mid); font-weight: 500; }
+
+/* HIGHLIGHT BOX */
+.highlight-box {
+  background: var(--bg2);
+  border-left: 3px solid var(--legend);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+}
+
+.highlight-box.red { border-left-color: var(--red); }
+.highlight-box.blue { border-left-color: var(--blue); }
+.highlight-box.green { border-left-color: var(--green); }
+.highlight-box.purple { border-left-color: var(--purple); }
+
+.highlight-box strong { color: var(--text); font-weight: 500; }
+
+/* HYPERCHARGE */
+.hypercharge-box {
+  background: linear-gradient(135deg, rgba(179,136,255,0.08), rgba(255,215,0,0.05));
+  border: 1px solid rgba(179,136,255,0.25);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.hypercharge-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hypercharge-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  margin: 0;
+}
+
+/* MODE SECTION */
+.mode-block {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.mode-block-header {
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mode-block-header:hover { background: var(--bg3); }
+
+.mode-block-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  flex: 1;
+}
+
+.toggle { color: var(--text-dim); font-size: 0.7rem; transition: transform 0.2s; }
+.mode-block.open .toggle { transform: rotate(180deg); }
+
+.mode-block-content {
+  display: none;
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.mode-block.open .mode-block-content { display: block; }
+
+.mode-block-content p { margin-top: 0.75rem; }
+
+/* TIPS GRID */
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.tip-card {
+  background: var(--bg2);
+  padding: 1.25rem;
+  transition: background 0.15s;
+}
+
+.tip-card:hover { background: var(--bg3); }
+
+.tip-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+
+.tip-title {
+  font-weight: 500;
+  font-size: 0.88rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.tip-desc { font-size: 0.8rem; color: var(--text-dim); margin: 0; line-height: 1.5; }
+
+/* MONETISATION */
+.mono-section {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+.mono-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: var(--legend);
+  margin-bottom: 0.5rem;
+}
+
+/* FOOTER */
+.guide-footer {
+  margin-top: 5rem;
+  padding: 2rem 2.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  max-width: 100%;
+}
+
+.footer-nav { display: flex; gap: 1.5rem; }
+.footer-nav a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+.footer-nav a:hover { color: var(--text); }
+
+@keyframes fadeup {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 { animation: fadeup 0.5s ease both; }
+.rank-badge { animation: fadeup 0.4s ease both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Guides<span>GG</span></a>
+  <a href="index.html" class="nav-back">← Retour aux guides</a>
+  <span class="nav-game-tag">Brawl Stars</span>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="rank-badge">
+    <span class="rank-from">Mythique</span>
+    <span class="rank-arrow">→</span>
+    <span class="rank-to">Légendaire</span>
+  </div>
+  <h1>COMMENT FRANCHIR<br>LE MUR <em>MYTHIQUE</em><br>EN RANKED</h1>
+  <div class="hero-meta">
+    <div>Jeu <span>Brawl Stars</span></div>
+    <div>Niveau <span>Mythique → Légendaire</span></div>
+    <div>Lecture <span>~12 min</span></div>
+    <div>Mis à jour <span>2025</span></div>
+  </div>
+</section>
+
+<!-- TOC -->
+<div class="toc">
+  <div class="toc-inner">
+    <p class="toc-title">// Sommaire</p>
+    <ul class="toc-list">
+      <li><a href="#ban"><span class="toc-num">01</span> Phase de Ban — Qui éliminer et pourquoi</a></li>
+      <li><a href="#pick"><span class="toc-num">02</span> Phase de Pick — Choisir le bon brawler</a></li>
+      <li><a href="#combat"><span class="toc-num">03</span> En jeu — Stratégies par mode</a></li>
+      <li><a href="#tips"><span class="toc-num">04</span> Derniers conseils pour grimper</a></li>
+    </ul>
+  </div>
+</div>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="section" style="margin-bottom:3rem;">
+    <p>Mythique est le rang où la majorité des joueurs bloquent. Pas parce qu'ils jouent mal — mais parce que le ranked à ce niveau exige une vraie réflexion <strong style="color:var(--text)">avant même de lancer la partie</strong>. La phase de draft (ban + pick) peut décider de 40% du résultat. Ce guide te donne les outils pour l'exploiter.</p>
+  </div>
+
+  <!-- PHASE 1 : BAN -->
+  <div class="phase" id="ban">
+    <div class="phase-header">
+      <span class="phase-num">01</span>
+      <div class="phase-info">
+        <p class="phase-label">// Première étape</p>
+        <h2 class="phase-title ban">Phase de Ban</h2>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title red">Qui bannir en priorité</p>
+      <p>Le ban sert à deux choses : éliminer un brawler injouable sur la map actuelle, ou éliminer un brawler tellement fort dans la méta que la partie devient déséquilibrée. Les deux logiques sont valides — mais pas au même moment.</p>
+
+      <div class="rules">
+        <div class="rule-card">
+          <span class="rule-icon">🗺️</span>
+          <div class="rule-content">
+            <p class="rule-title">Brawlers injouables sur certaines maps</p>
+            <p class="rule-desc">Certains brawlers sont conceptuellement cassés sur certaines configurations. Un brawler de mêlée comme <strong>Edgar</strong> ou <strong>El Primo</strong> est inutile sur une map ouverte sans couverture — mais devient dangereux sur une map fermée avec couloirs. Banne ce qui est fort <em>sur cette map précise</em>, pas en général.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-icon">📊</span>
+          <div class="rule-content">
+            <p class="rule-title">Brawlers de méta à haut taux de ban</p>
+            <p class="rule-desc">Certains brawlers dominent la méta au point d'être prioritaires peu importe la map. En 2025, <strong>Draco</strong> est l'exemple parfait : mobilité + dégâts + sustain. Si tu vois qu'un brawler a un win rate > 55% et un ban rate > 30%, c'est un ban automatique sauf contre-indication spécifique.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-icon">⚠️</span>
+          <div class="rule-content">
+            <p class="rule-title">Exception : tu veux jouer ce brawler</p>
+            <p class="rule-desc">Si ton brawler principal est dans la liste des bans prioritaires — <strong>ne le banne pas</strong>. Laisse l'adversaire le faire. Si personne ne le banne, tu le pick. Concentre ton ban sur le deuxième brawler le plus dangereux pour toi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title red">Taux de ban & win rate par brawler (méta actuelle)</p>
+      <table class="brawler-table">
+        <thead>
+          <tr>
+            <th>Brawler</th>
+            <th>Win Rate</th>
+            <th>Ban Rate</th>
+            <th>Pourquoi le bannir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="brawler-name">Draco</span></td>
+            <td><span class="winrate wr-high">57%</span></td>
+            <td><span class="ban-rate br-high">42%</span></td>
+            <td>Mobilité + dégâts + sustain. Trop polyvalent toutes maps.</td>
+          </tr>
+          <tr>
+            <td><span class="brawler-name">Maisie</span></td>
+            <td><span class="winrate wr-high">55%</span></td>
+            <td><span class="ban-rate br-high">35%</span></td>
+            <td>Longue portée + projectile pénétrant. Écrase les maps ouvertes.</td>
+          </tr>
+          <tr>
+            <td><span class="brawler-name">Melodie</span></td>
+            <td><span class="winrate wr-mid">53%</span></td>
+            <td><span class="ban-rate br-mid">28%</span></td>
+            <td>Hyper mobile, difficile à contrer sans sniper.</td>
+          </tr>
+          <tr>
+            <td><span class="brawler-name">Angelo</span></td>
+            <td><span class="winrate wr-mid">54%</span></td>
+            <td><span class="ban-rate br-mid">25%</span></td>
+            <td>Dégâts de zone + zone de contrôle. Fort en Brawl Ball.</td>
+          </tr>
+          <tr>
+            <td><span class="brawler-name">Edgar</span></td>
+            <td><span class="winrate wr-low">41%</span></td>
+            <td><span class="ban-rate br-mid">20%</span></td>
+            <td>À ne bannir QUE sur maps fermées/couloirs. Inutile en map ouverte.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:0.75rem; color:var(--text-dim); font-family:'DM Mono',monospace;">* Données estimées basées sur les tendances de la communauté. Vérifier sur Brawlify pour les stats en temps réel.</p>
+    </div>
+
+  </div>
+
+  <!-- PHASE 2 : PICK -->
+  <div class="phase" id="pick">
+    <div class="phase-header">
+      <span class="phase-num">02</span>
+      <div class="phase-info">
+        <p class="phase-label">// Deuxième étape</p>
+        <h2 class="phase-title pick">Phase de Pick</h2>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title blue">Les 3 critères dans l'ordre</p>
+      <div class="rules">
+        <div class="rule-card">
+          <span class="rule-icon">🗺️</span>
+          <div class="rule-content">
+            <p class="rule-title">1. Adapter le brawler à la map</p>
+            <p class="rule-desc">C'est le critère numéro un. Un bon brawler sur la mauvaise map = défaite quasi assurée. <strong>Edgar sur une map ouverte</strong> ne peut jamais approcher. <strong>Piper dans un couloir fermé</strong> ne peut jamais viser. Check la map avant de tout le reste.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-icon">⚔️</span>
+          <div class="rule-content">
+            <p class="rule-title">2. Contrer la composition adverse</p>
+            <p class="rule-desc">Une fois que t'as 2-3 brawlers viables sur la map, regarde ce que l'adversaire a picks. Si ils ont 2 tanks, prends un brawler à dégâts perçants. Si ils ont 2 snipers, prends un brawler mobile ou un tank. Contre-compose quand tu peux.</p>
+          </div>
+        </div>
+        <div class="rule-card">
+          <span class="rule-icon">🎮</span>
+          <div class="rule-content">
+            <p class="rule-title">3. Jouer un brawler que tu maîtrises</p>
+            <p class="rule-desc">Le meilleur brawler du monde joué sans expérience vaut moins qu'un brawler B-tier que tu connais par cœur. Si ton main est viable sur la map — joue-le. La maîtrise compense beaucoup.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <p class="section-title blue">Picks selon la map — exemples concrets</p>
+      <div class="map-grid">
+        <div class="map-card">
+          <p class="map-name">Pinball Dreams</p>
+          <span class="map-mode mode-brawlball">Brawl Ball</span>
+          <p class="map-picks"><strong>Picks forts :</strong> Frank, Rosa, Buzz<br><strong>Éviter :</strong> Piper, Brock (trop fermée)<br><strong>Win rate top pick :</strong> Frank ~58%</p>
+        </div>
+        <div class="map-card">
+          <p class="map-name">Open Space</p>
+          <span class="map-mode mode-zone">Gem Grab</span>
+          <p class="map-picks"><strong>Picks forts :</strong> Piper, Brock, Belle<br><strong>Éviter :</strong> Edgar, El Primo<br><strong>Win rate top pick :</strong> Piper ~56%</p>
+        </div>
+        <div class="map-card">
+          <p class="map-name">Safe Zone</p>
+          <span class="map-mode mode-heist">Braquage</span>
+          <p class="map-picks"><strong>Picks forts :</strong> Colt, Brock, Angelo<br><strong>Éviter :</strong> Brawlers de mêlée pure<br><strong>Win rate top pick :</strong> Colt ~54%</p>
+        </div>
+        <div class="map-card">
+          <p class="map-name">Dueling Beetles</p>
+          <span class="map-mode mode-hotzone">Hot Zone</span>
+          <p class="map-picks"><strong>Picks forts :</strong> Sprout, Rosa, Jacky<br><strong>Éviter :</strong> Snipers longue portée<br><strong>Win rate top pick :</strong> Sprout ~57%</p>
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:var(--text-dim); font-family:'DM Mono',monospace;">* Consulte <strong style="color:var(--text-mid)">brawlify.com</strong> pour les win rates en temps réel par map — les stats changent à chaque mise à jour.</p>
+    </div>
+
+    <div class="section">
+      <p class="section-title blue">Exemples de contre-picks fréquents</p>
+      <table class="brawler-table">
+        <thead>
+          <tr>
+            <th>Adversaire joue</th>
+            <th>Tu peux jouer</th>
+            <th>Pourquoi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2 tanks (Frank + Rosa)</td>
+            <td><span class="brawler-name">Colt / Brock</span></td>
+            <td>Dégâts perçants, démonte les tanks à distance</td>
+          </tr>
+          <tr>
+            <td>2 snipers (Piper + Belle)</td>
+            <td><span class="brawler-name">Mortis / Buzz</span></td>
+            <td>Mobilité pour fermer la distance rapidement</td>
+          </tr>
+          <tr>
+            <td>Composition agressive (Buzz + Edgar)</td>
+            <td><span class="brawler-name">Shelly / Frank</span></td>
+            <td>Super de zone pour repousser les rushes</td>
+          </tr>
+          <tr>
+            <td>Longue portée dominante</td>
+            <td><span class="brawler-name">Bull / Jacky</span></td>
+            <td>Tanke les dégâts et force le close range</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHASE 3 : COMBAT -->
+  <div class="phase" id="combat">
+    <div class="phase-header">
+      <span class="phase-num">03</span>
+      <div class="phase-info">
+        <p class="phase-label">// En jeu</p>
+        <h2 class="phase-title combat">Stratégies par Mode</h2>
+      </div>
+    </div>
+
+    <p>Les mécaniques changent selon le mode. Comprendre l'objectif réel de chaque mode — pas juste "faire des kills" — c'est ce qui sépare Mythique de Légendaire.</p>
+
+    <!-- BRAWL BALL -->
+    <div class="mode-block open">
+      <div class="mode-block-header" onclick="toggleMode(this)">
+        <span class="map-mode mode-brawlball" style="margin:0">Brawl Ball</span>
+        <span class="mode-block-title">Football / Hockey Brawl</span>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="mode-block-content">
+        <p>Le Brawl Ball n'est pas un mode de kills — c'est une <strong style="color:var(--text)">guerre de position</strong>. L'objectif est de contrôler les zones pour avancer vers le but adverse tout en défendant le tien.</p>
+        <div class="rules" style="margin-top:1rem;">
+          <div class="rule-card">
+            <span class="rule-icon">📏</span>
+            <div class="rule-content">
+              <p class="rule-title">Respecte ta ligne</p>
+              <p class="rule-desc">Chaque joueur a une zone de responsabilité. Le porteur de balle avance, les deux autres couvrent les flancs. Se regrouper = laisser un flanc ouvert = but encaissé.</p>
+            </div>
+          </div>
+          <div class="rule-card">
+            <span class="rule-icon">🧱</span>
+            <div class="rule-content">
+              <p class="rule-title">Positionne-toi avant d'attaquer</p>
+              <p class="rule-desc">Ne rush pas le porteur de balle adverse sans angle favorable. Prends d'abord position derrière un mur, puis engage. Un mauvais engagement en Brawl Ball = 3 secondes de respawn = but.</p>
+            </div>
+          </div>
+          <div class="rule-card">
+            <span class="rule-icon">⚡</span>
+            <div class="rule-content">
+              <p class="rule-title">La super = ouverture instantanée</p>
+              <p class="rule-desc">Garde ta super pour créer une ouverture de but ou pour défendre une situation critique. Une super bien placée en Brawl Ball peut retourner le round en 3 secondes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRAQUAGE -->
+    <div class="mode-block">
+      <div class="mode-block-header" onclick="toggleMode(this)">
+        <span class="map-mode mode-heist" style="margin:0">Braquage</span>
+        <span class="mode-block-title">Heist — Attaque & Défense du Coffre</span>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="mode-block-content">
+        <p>En Braquage, l'objectif est simple : endommager le coffre adverse. Mais la plupart des joueurs font l'erreur de rush sans stratégie.</p>
+        <div class="rules" style="margin-top:1rem;">
+          <div class="rule-card">
+            <span class="rule-icon">🎯</span>
+            <div class="rule-content">
+              <p class="rule-title">S'approcher intelligemment</p>
+              <p class="rule-desc">L'approche se fait en utilisant les murs comme couverture. Un brawler à distance peut faire des dégâts sur le coffre depuis loin — ne t'expose pas inutilement pour t'approcher.</p>
+            </div>
+          </div>
+          <div class="rule-card">
+            <span class="rule-icon">🛡️</span>
+            <div class="rule-content">
+              <p class="rule-title">Défendre au bon moment</p>
+              <p class="rule-desc">Quand l'adversaire attaque le coffre, ne défends pas dans le couloir — défends près du coffre. Ça te donne l'angle et réduit leur espace de manœuvre.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hypercharge-box" style="margin-top:1rem;">
+          <p class="hypercharge-title">⚡ L'Hypercharge — Retourner la partie</p>
+          <p class="hypercharge-desc">L'Hypercharge dure ~5 secondes et booste massivement dégâts, vitesse et capacités. En Braquage, une Hypercharge bien chargée et utilisée au bon moment peut détruire 30% du coffre adverse ou éliminer toute une équipe qui défend. <strong style="color:var(--text)">Ne la gaspille pas sur des kills inutiles</strong> — garde-la pour les moments décisifs.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOT ZONE / GEM GRAB -->
+    <div class="mode-block">
+      <div class="mode-block-header" onclick="toggleMode(this)">
+        <span class="map-mode mode-zone" style="margin:0">Gem Grab / Hot Zone</span>
+        <span class="mode-block-title">Contrôle de Zone</span>
+        <span class="toggle">▼</span>
+      </div>
+      <div class="mode-block-content">
+        <p>Ces deux modes reposent sur le même principe : <strong style="color:var(--text)">contrôler le centre pour avancer</strong>. C'est une guerre d'attrition — pas de kills rapides, mais de pression constante.</p>
+        <div class="highlight-box blue" style="margin-top:1rem;">
+          <strong>Composition assassins :</strong> si ton équipe joue des brawlers mobiles (Mortis, Buzz, Sam), la stratégie est de charger les supers en périphérie, puis de plonger en coordination sur l'équipe adverse pour les éliminer rapidement et prendre le centre libre.
+        </div>
+        <div class="highlight-box green">
+          <strong>Composition contrôle :</strong> si ton équipe joue des brawlers de zone (Sprout, Gene, Grom), la stratégie est de bloquer le centre avec des murs/zones de dégâts, et forcer l'adversaire dans le poison en fin de partie.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PHASE 4 : TIPS -->
+  <div class="phase" id="tips">
+    <div class="phase-header">
+      <span class="phase-num">04</span>
+      <div class="phase-info">
+        <p class="phase-label">// Pour finir</p>
+        <h2 class="phase-title tips">Derniers Conseils</h2>
+      </div>
+    </div>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-icon">👥</div>
+        <p class="tip-title">Joue en duo ou trio</p>
+        <p class="tip-desc">Le solo ranked dépend trop des coéquipiers aléatoires. Un ami avec qui tu communiques double tes chances de victoire. Utilise la fonction "Rejoindre rapidement" ou trouve des coéquipiers sur les serveurs Discord Brawl Stars FR.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🎯</div>
+        <p class="tip-tip">Spécialise-toi sur 3 brawlers max</p>
+        <p class="tip-desc">Essayer de jouer tous les brawlers = maîtriser aucun. Choisis 2-3 brawlers polyvalents que tu connais parfaitement, et construis ton draft autour d'eux.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📈</div>
+        <p class="tip-title">Analyse tes défaites</p>
+        <p class="tip-desc">Après chaque défaite, pose-toi une seule question : est-ce que c'était la phase de draft, le positionnement, ou la gestion de super ? Identifie UN problème par session.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🧠</div>
+        <p class="tip-title">Ne joue pas en tilt</p>
+        <p class="tip-desc">Après 2 défaites consécutives, arrête. Le tilt fait perdre des trophées bien plus vite que le skill en fait gagner. Reprends à tête reposée.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📱</div>
+        <p class="tip-title">Utilise Brawlify</p>
+        <p class="tip-desc">brawlify.com te donne les win rates et ban rates en temps réel par brawler et par map. Vérifie avant chaque session ranked pour adapter ta stratégie à la méta du moment.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🏆</div>
+        <p class="tip-title">La régularité avant tout</p>
+        <p class="tip-desc">1h de ranked focus vaut mieux que 4h en mode "on verra". Définis un objectif de session (ex: +3 trophées) et arrête quand tu l'atteins ou après 2 défaites.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:2rem;">
+      <strong>Le vrai secret pour passer Légendaire :</strong> la différence entre Mythique et Légendaire n'est pas le skill mécaniques — c'est la constance dans la prise de décision. Ban cohérent, pick adapté, respect de la composition. Applique ces principes à chaque partie sans exception.
+    </div>
+  </div>
+
+</main>
+
+<footer class="guide-footer">
+  <span>GuidesGG · Brawl Stars Ranked 2025</span>
+  <nav class="footer-nav">
+    <a href="index.html">Accueil</a>
+    <a href="guide-minecraft-survie.html">Guide Minecraft</a>
+  </nav>
+</footer>
+
+<script>
+function toggleMode(header) {
+  const block = header.closest('.mode-block');
+  block.classList.toggle('open');
+}
+</script>
+</body>
+</html>
