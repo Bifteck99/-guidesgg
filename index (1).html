@@ -8,479 +8,162 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #080808;
-  --bg2: #0f0f0f;
-  --bg3: #161616;
-  --border: #1f1f1f;
-  --border2: #2a2a2a;
-  --text: #f0f0f0;
-  --text-dim: #666;
-  --text-mid: #999;
-  --accent: #e8ff00;
-  --accent2: #ff6b35;
-  --accent3: #00d4ff;
+  --bg: #080808; --bg2: #0f0f0f; --bg3: #161616;
+  --border: #1f1f1f; --border2: #2a2a2a;
+  --text: #f0f0f0; --text-dim: #666; --text-mid: #999;
+  --accent: #e8ff00; --accent2: #ff6b35;
 }
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif; font-weight:300; overflow-x:hidden; }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-}
-
-/* NAV */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 2.5rem;
-  height: 56px;
-  border-bottom: 1px solid var(--border);
-  background: rgba(8,8,8,0.92);
-  backdrop-filter: blur(12px);
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 2.5rem; height:56px;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,8,8,0.92); backdrop-filter:blur(12px);
 }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.08em; color:var(--text); text-decoration:none; }
+.nav-logo span { color:var(--accent); }
+.nav-right { display:flex; align-items:center; gap:1.5rem; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-family:'DM Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-dim); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text); }
+.lang-switcher { display:flex; border:1px solid var(--border2); overflow:hidden; border-radius:2px; }
+.lang-btn { font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:500; letter-spacing:0.08em; padding:0.3rem 0.65rem; background:transparent; color:var(--text-dim); border:none; cursor:pointer; transition:all 0.15s; text-transform:uppercase; }
+.lang-btn.active { background:var(--accent); color:#000; }
+.lang-btn:not(.active):hover { background:var(--border2); color:var(--text); }
 
-.nav-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  letter-spacing: 0.08em;
-  color: var(--text);
-  text-decoration: none;
-}
-.nav-logo span { color: var(--accent); }
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:flex-end; padding:0 2.5rem 4rem; position:relative; overflow:hidden; }
+.hero-bg { position:absolute; inset:0; background: radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,255,0,0.04) 0%, transparent 70%), radial-gradient(ellipse 40% 60% at 20% 60%, rgba(0,212,255,0.03) 0%, transparent 70%); }
+.hero-grid { position:absolute; inset:0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size:60px 60px; opacity:0.3; mask-image:radial-gradient(ellipse at center, black 20%, transparent 80%); }
+.hero-counter { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--text-dim); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1.5rem; position:relative; }
+.hero-counter::before { content:''; display:inline-block; width:6px; height:6px; background:var(--accent); border-radius:50%; margin-right:0.6rem; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,12vw,10rem); line-height:0.9; letter-spacing:0.02em; position:relative; max-width:900px; }
+h1 .line2 { color:var(--accent); }
+h1 .line3 { color:var(--text-dim); font-size:clamp(2rem,6vw,5rem); }
+.hero-sub { margin-top:2rem; display:flex; align-items:center; gap:3rem; position:relative; }
+.hero-desc { max-width:380px; font-size:0.9rem; color:var(--text-mid); line-height:1.6; }
+.hero-stats { display:flex; gap:2.5rem; }
+.stat { display:flex; flex-direction:column; gap:0.2rem; }
+.stat-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; line-height:1; }
+.stat-label { font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; }
+.scroll-hint { position:absolute; bottom:2rem; right:2.5rem; font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--text-dim); letter-spacing:0.1em; text-transform:uppercase; display:flex; align-items:center; gap:0.5rem; }
+.scroll-hint::after { content:''; display:block; width:1px; height:40px; background:linear-gradient(to bottom, var(--text-dim), transparent); animation:scrollline 1.5s ease-in-out infinite; }
+@keyframes scrollline { 0%,100%{opacity:1;transform:scaleY(1)} 50%{opacity:0.3;transform:scaleY(0.5)} }
 
-.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.featured { padding:5rem 2.5rem; border-top:1px solid var(--border); }
+.section-header { display:flex; align-items:baseline; gap:1rem; margin-bottom:2.5rem; }
+.section-title { font-family:'Bebas Neue',sans-serif; font-size:2.5rem; letter-spacing:0.05em; }
+.section-count { font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--text-dim); }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-.nav-links a {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--text); }
+.featured-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr; grid-template-rows:auto auto; gap:1px; background:var(--border); border:1px solid var(--border); }
+.guide-card { background:var(--bg2); position:relative; overflow:hidden; text-decoration:none; display:block; transition:background 0.2s; }
+.guide-card:hover { background:var(--bg3); }
+.guide-card.hero-card { grid-row:1/3; }
 
-/* LANG SWITCHER */
-.lang-switcher {
-  display: flex;
-  border: 1px solid var(--border2);
-  overflow: hidden;
-  border-radius: 2px;
-}
+.card-image-wrap { overflow:hidden; position:relative; }
+.card-image { width:100%; height:180px; object-fit:cover; display:block; filter:brightness(0.65) saturate(1.1); transition:filter 0.3s, transform 0.4s; }
+.guide-card:hover .card-image { filter:brightness(0.8) saturate(1.2); transform:scale(1.04); }
+.hero-card .card-image { height:260px; }
+.card-image-wrap::after { content:''; position:absolute; bottom:0; left:0; right:0; height:70px; background:linear-gradient(to bottom, transparent, var(--bg2)); pointer-events:none; }
+.guide-card:hover .card-image-wrap::after { background:linear-gradient(to bottom, transparent, var(--bg3)); }
 
-.lang-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  padding: 0.3rem 0.65rem;
-  background: transparent;
-  color: var(--text-dim);
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-transform: uppercase;
+/* BS RANK CARD — fond dégradé + logos rangs */
+.bs-card-visual {
+  width:100%; height:180px;
+  background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 40%, #1a0a2e 100%);
+  display:flex; align-items:center; justify-content:center;
+  gap:1.5rem; position:relative; overflow:hidden;
+  transition: filter 0.3s, transform 0.4s;
 }
+.bs-card-visual::before {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(180,100,255,0.15) 0%, transparent 70%);
+}
+.bs-card-visual:hover { transform:scale(1.02); }
+.guide-card:hover .bs-card-visual { filter:brightness(1.15); }
 
-.lang-btn.active {
-  background: var(--accent);
-  color: #000;
-}
+.rank-logo-wrap { display:flex; flex-direction:column; align-items:center; gap:0.4rem; z-index:1; }
+.rank-logo { width:60px; height:60px; object-fit:contain; filter:drop-shadow(0 0 12px rgba(180,100,255,0.6)); transition:transform 0.3s; }
+.guide-card:hover .rank-logo { transform:scale(1.1); }
+.rank-label { font-family:'DM Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.1em; }
+.rank-label.mythic { color:#c084fc; }
+.rank-label.legendary { color:#ffd700; }
 
-.lang-btn:not(.active):hover {
-  background: var(--border2);
-  color: var(--text);
+.rank-arrow-big {
+  font-size:1.5rem; color:rgba(255,255,255,0.3); z-index:1;
+  animation: arrowpulse 1.5s ease-in-out infinite;
 }
+@keyframes arrowpulse { 0%,100%{opacity:0.3;transform:translateX(0)} 50%{opacity:0.8;transform:translateX(4px)} }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 2.5rem 4rem;
-  position: relative;
-  overflow: hidden;
-}
+.card-image-placeholder { width:100%; height:180px; background:var(--bg3); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:3rem; color:var(--border2); }
+.hero-card .card-image-placeholder { height:260px; }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,255,0,0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 20% 60%, rgba(0,212,255,0.03) 0%, transparent 70%);
-}
+.card-body { padding:1.25rem 1.5rem 1.5rem; }
+.card-game-tag { font-family:'DM Mono',monospace; font-size:0.62rem; text-transform:uppercase; letter-spacing:0.12em; padding:0.2rem 0.5rem; border-radius:2px; display:inline-block; margin-bottom:0.75rem; }
+.tag-minecraft { background:rgba(74,222,128,0.15); color:#4ade80; }
+.tag-brawlstars { background:rgba(180,100,255,0.15); color:#c084fc; }
+.tag-coming { background:rgba(100,100,100,0.15); color:#888; }
+.card-title { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; line-height:1.1; letter-spacing:0.03em; margin-bottom:0.5rem; color:var(--text); }
+.hero-card .card-title { font-size:2rem; }
+.card-desc { font-size:0.82rem; color:var(--text-dim); line-height:1.5; margin-bottom:1rem; }
+.card-meta { display:flex; align-items:center; gap:1rem; font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--text-dim); }
+.card-meta .read-time { color:var(--text-mid); }
+.card-arrow { position:absolute; top:0.75rem; right:0.75rem; font-size:0.75rem; color:rgba(255,255,255,0.6); transition:transform 0.2s, color 0.2s; z-index:2; background:rgba(0,0,0,0.5); padding:0.2rem 0.4rem; border-radius:2px; }
+.guide-card:hover .card-arrow { transform:translate(3px,-3px); color:var(--accent); }
 
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 60px 60px;
-  opacity: 0.3;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-}
+.catalog { padding:4rem 2.5rem; border-top:1px solid var(--border); }
+.filter-bar { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+.filter-btn { font-family:'DM Mono',monospace; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.08em; padding:0.4rem 0.9rem; border:1px solid var(--border2); background:transparent; color:var(--text-dim); border-radius:2px; transition:all 0.15s; cursor:pointer; }
+.filter-btn:hover, .filter-btn.active { border-color:var(--accent); color:var(--accent); background:rgba(232,255,0,0.05); }
 
-.hero-counter {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--text-dim);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-.hero-counter::before {
-  content: '';
-  display: inline-block;
-  width: 6px; height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  margin-right: 0.6rem;
-  animation: pulse 2s infinite;
-}
+.guides-list { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); }
+.list-card { background:var(--bg2); text-decoration:none; display:block; transition:background 0.15s; overflow:hidden; }
+.list-card:hover { background:var(--bg3); }
+.list-card .card-image { height:140px; }
+.list-card .bs-card-visual { height:140px; }
+.list-card .bs-card-visual .rank-logo { width:44px; height:44px; }
+.list-card .card-image-placeholder { height:140px; }
+.list-card .card-image-wrap::after { background:linear-gradient(to bottom, transparent, var(--bg2)); }
+.list-card:hover .card-image-wrap::after { background:linear-gradient(to bottom, transparent, var(--bg3)); }
+.list-card .card-body { padding:1rem 1.25rem 1.25rem; }
+.list-card .card-title { font-size:1rem; margin-bottom:0.4rem; }
+.list-card .card-desc { font-size:0.78rem; margin-bottom:0.6rem; }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
+.difficulty { display:flex; gap:3px; align-items:center; }
+.diff-dot { width:6px; height:6px; border-radius:50%; background:var(--border2); }
+.diff-dot.filled { background:var(--accent); }
+.diff-dot.filled.medium { background:var(--accent2); }
 
-h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(4rem, 12vw, 10rem);
-  line-height: 0.9;
-  letter-spacing: 0.02em;
-  position: relative;
-  max-width: 900px;
-}
-h1 .line2 { color: var(--accent); }
-h1 .line3 { color: var(--text-dim); font-size: clamp(2rem, 6vw, 5rem); }
+.newsletter { margin:0 2.5rem; border:1px solid var(--border); background:var(--bg2); padding:3rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+.newsletter-text h2 { font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.05em; margin-bottom:0.5rem; }
+.newsletter-text p { font-size:0.85rem; color:var(--text-dim); }
+.newsletter-form { display:flex; min-width:360px; }
+.newsletter-input { flex:1; background:var(--bg3); border:1px solid var(--border2); border-right:none; padding:0.7rem 1rem; color:var(--text); font-family:'DM Mono',monospace; font-size:0.78rem; outline:none; transition:border-color 0.2s; }
+.newsletter-input::placeholder { color:var(--text-dim); }
+.newsletter-input:focus { border-color:var(--accent); }
+.newsletter-btn { background:var(--accent); color:#000; border:none; padding:0.7rem 1.5rem; font-family:'DM Mono',monospace; font-size:0.72rem; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; cursor:pointer; transition:background 0.15s; }
+.newsletter-btn:hover { background:#d4e800; }
 
-.hero-sub {
-  margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  position: relative;
-}
+footer { margin-top:5rem; padding:2rem 2.5rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--text-dim); }
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:var(--text); letter-spacing:0.08em; }
+.footer-logo span { color:var(--accent); }
 
-.hero-desc {
-  max-width: 380px;
-  font-size: 0.9rem;
-  color: var(--text-mid);
-  line-height: 1.6;
-}
+@keyframes fadeup { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+h1 { animation:fadeup 0.6s ease both; }
+.hero-counter { animation:fadeup 0.5s ease both; }
+.hero-sub { animation:fadeup 0.7s 0.1s ease both; }
 
-.hero-stats { display: flex; gap: 2.5rem; }
-
-.stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-}
-.stat-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.scroll-hint {
-  position: absolute;
-  bottom: 2rem; right: 2.5rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--text-dim);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.scroll-hint::after {
-  content: '';
-  display: block;
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--text-dim), transparent);
-  animation: scrollline 1.5s ease-in-out infinite;
-}
-@keyframes scrollline {
-  0%, 100% { opacity: 1; transform: scaleY(1); }
-  50% { opacity: 0.3; transform: scaleY(0.5); }
-}
-
-/* FEATURED */
-.featured {
-  padding: 5rem 2.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 0.05em;
-}
-.section-count {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--text-dim);
-}
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.guide-card {
-  background: var(--bg2);
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  text-decoration: none;
-  display: block;
-  transition: background 0.2s;
-}
-.guide-card:hover { background: var(--bg3); }
-
-.guide-card.hero-card {
-  grid-row: 1 / 3;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 420px;
-}
-
-.card-game-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.2rem 0.5rem;
-  border-radius: 2px;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.tag-minecraft { background: rgba(74,222,128,0.15); color: #4ade80; }
-.tag-brawlstars { background: rgba(255,107,157,0.15); color: #ff6b9d; }
-.tag-coming { background: rgba(100,100,100,0.15); color: #888; }
-
-.card-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
-  line-height: 1.1;
-  letter-spacing: 0.03em;
-  margin-bottom: 0.6rem;
-  color: var(--text);
-}
-.hero-card .card-title { font-size: 2.4rem; }
-
-.card-desc {
-  font-size: 0.82rem;
-  color: var(--text-dim);
-  line-height: 1.5;
-  margin-bottom: 1.2rem;
-}
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--text-dim);
-}
-.card-meta .read-time { color: var(--text-mid); }
-
-.card-arrow {
-  position: absolute;
-  top: 1.5rem; right: 1.5rem;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  transition: transform 0.2s, color 0.2s;
-}
-.guide-card:hover .card-arrow { transform: translate(3px,-3px); color: var(--accent); }
-
-.hero-card .card-bg {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(74,222,128,0.06) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-/* CATALOG */
-.catalog {
-  padding: 4rem 2.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.filter-bar {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 2.5rem;
-}
-
-.filter-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.4rem 0.9rem;
-  border: 1px solid var(--border2);
-  background: transparent;
-  color: var(--text-dim);
-  border-radius: 2px;
-  transition: all 0.15s;
-  cursor: pointer;
-}
-.filter-btn:hover, .filter-btn.active {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: rgba(232,255,0,0.05);
-}
-
-.guides-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-
-.list-card {
-  background: var(--bg2);
-  padding: 1.5rem;
-  text-decoration: none;
-  display: block;
-  transition: background 0.15s;
-  position: relative;
-}
-.list-card:hover { background: var(--bg3); }
-.list-card .card-title { font-size: 1.1rem; }
-.list-card .card-desc { font-size: 0.8rem; margin-bottom: 0.75rem; }
-
-.difficulty { display: flex; gap: 3px; align-items: center; }
-.diff-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--border2);
-}
-.diff-dot.filled { background: var(--accent); }
-.diff-dot.filled.medium { background: var(--accent2); }
-.diff-dot.filled.hard { background: #ef4444; }
-
-/* NEWSLETTER */
-.newsletter {
-  margin: 0 2.5rem;
-  border: 1px solid var(--border);
-  background: var(--bg2);
-  padding: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-.newsletter-text h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-.newsletter-text p { font-size: 0.85rem; color: var(--text-dim); }
-
-.newsletter-form { display: flex; min-width: 360px; }
-.newsletter-input {
-  flex: 1;
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-  border-right: none;
-  padding: 0.7rem 1rem;
-  color: var(--text);
-  font-family: 'DM Mono', monospace;
-  font-size: 0.78rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.newsletter-input::placeholder { color: var(--text-dim); }
-.newsletter-input:focus { border-color: var(--accent); }
-
-.newsletter-btn {
-  background: var(--accent);
-  color: #000;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.newsletter-btn:hover { background: #d4e800; }
-
-/* FOOTER */
-footer {
-  margin-top: 5rem;
-  padding: 2rem 2.5rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'DM Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--text-dim);
-}
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.1rem;
-  color: var(--text);
-  letter-spacing: 0.08em;
-}
-.footer-logo span { color: var(--accent); }
-
-@keyframes fadeup {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-h1 { animation: fadeup 0.6s ease both; }
-.hero-counter { animation: fadeup 0.5s ease both; }
-.hero-sub { animation: fadeup 0.7s 0.1s ease both; }
-
-@media (max-width: 768px) {
-  .featured-grid { grid-template-columns: 1fr; }
-  .guide-card.hero-card { grid-row: auto; min-height: 280px; }
-  .newsletter { flex-direction: column; }
-  .newsletter-form { min-width: 0; width: 100%; }
-  nav .nav-links { display: none; }
+@media (max-width:768px) {
+  .featured-grid { grid-template-columns:1fr; }
+  .guide-card.hero-card { grid-row:auto; }
+  .newsletter { flex-direction:column; }
+  .newsletter-form { min-width:0; width:100%; }
+  nav .nav-links { display:none; }
 }
 </style>
 </head>
@@ -513,18 +196,9 @@ h1 { animation: fadeup 0.6s ease both; }
   <div class="hero-sub">
     <p class="hero-desc" data-i18n="hero_desc">Guides, soluces et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel — pour progresser vite.</p>
     <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">12+</span>
-        <span class="stat-label" data-i18n="stat_guides">Guides publiés</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">6</span>
-        <span class="stat-label" data-i18n="stat_games">Jeux couverts</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">1/sem</span>
-        <span class="stat-label" data-i18n="stat_freq">Nouveau guide</span>
-      </div>
+      <div class="stat"><span class="stat-num">2</span><span class="stat-label" data-i18n="stat_guides">Guides publiés</span></div>
+      <div class="stat"><span class="stat-num">2</span><span class="stat-label" data-i18n="stat_games">Jeux couverts</span></div>
+      <div class="stat"><span class="stat-num">1/sem</span><span class="stat-label" data-i18n="stat_freq">Nouveau guide</span></div>
     </div>
   </div>
   <div class="scroll-hint" data-i18n="scroll">Scroll</div>
@@ -536,38 +210,64 @@ h1 { animation: fadeup 0.6s ease both; }
     <span class="section-count" data-i18n="featured_sub">Guides récents</span>
   </div>
   <div class="featured-grid">
+
+    <!-- MINECRAFT -->
     <a href="guide-minecraft-survie.html" class="guide-card hero-card" id="minecraft">
-      <div class="card-bg"></div>
       <span class="card-arrow">↗</span>
-      <span class="card-game-tag tag-minecraft">Minecraft</span>
-      <h3 class="card-title" data-i18n="mc_title">Survie Optimisée — Progression Jour 1 à Jour 30</h3>
-      <p class="card-desc" data-i18n="mc_desc">De spawn au late game : chaque étape dans l'ordre, les priorités qui comptent, et les erreurs à éviter.</p>
-      <div class="card-meta">
-        <span class="read-time" data-i18n="mc_read">~15 min de lecture</span>
-        <span>·</span>
-        <span>Version 1.21+</span>
+      <div class="card-image-wrap">
+        <img class="card-image"
+          src="https://images.unsplash.com/photo-1607513746994-51f730a44832?w=800&q=80"
+          alt="Minecraft Overworld"
+          onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <span class="card-game-tag tag-minecraft">Minecraft</span>
+        <h3 class="card-title" data-i18n="mc_title">Survie Optimisée — Progression Jour 1 à Jour 30</h3>
+        <p class="card-desc" data-i18n="mc_desc">De spawn au late game : chaque étape dans l'ordre, les priorités qui comptent, et les erreurs à éviter.</p>
+        <div class="card-meta">
+          <span class="read-time" data-i18n="mc_read">~15 min de lecture</span>
+          <span>·</span><span>Version 1.21+</span>
+        </div>
       </div>
     </a>
+
+    <!-- BRAWL STARS — logos rangs depuis GitHub -->
     <a href="guide-brawlstars-ranked.html" class="guide-card" id="brawlstars">
       <span class="card-arrow">↗</span>
-      <span class="card-game-tag tag-brawlstars">Brawl Stars</span>
-      <h3 class="card-title" data-i18n="bs_title">Mythique → Légendaire en Ranked</h3>
-      <p class="card-desc" data-i18n="bs_desc">Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.</p>
-      <div class="card-meta">
-        <span class="read-time" data-i18n="bs_read">~12 min de lecture</span>
-        <span>·</span>
-        <span>2025</span>
+      <div class="bs-card-visual">
+        <div class="rank-logo-wrap">
+          <img src="rank-mythic.png" alt="Mythic" class="rank-logo">
+          <span class="rank-label mythic">Mythique</span>
+        </div>
+        <span class="rank-arrow-big">→</span>
+        <div class="rank-logo-wrap">
+          <img src="rank-legendary.png" alt="Legendary" class="rank-logo" style="filter:drop-shadow(0 0 12px rgba(255,215,0,0.7))">
+          <span class="rank-label legendary">Légendaire</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="card-game-tag tag-brawlstars">Brawl Stars</span>
+        <h3 class="card-title" data-i18n="bs_title">Mythique → Légendaire en Ranked</h3>
+        <p class="card-desc" data-i18n="bs_desc">Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.</p>
+        <div class="card-meta">
+          <span class="read-time" data-i18n="bs_read">~12 min de lecture</span>
+          <span>·</span><span>2025</span>
+        </div>
       </div>
     </a>
+
+    <!-- COMING SOON -->
     <a href="#" class="guide-card">
       <span class="card-arrow">↗</span>
-      <span class="card-game-tag tag-coming" data-i18n="coming">Bientôt</span>
-      <h3 class="card-title" data-i18n="soon_title">Prochain guide en cours...</h3>
-      <p class="card-desc" data-i18n="soon_desc">Un nouveau guide arrive chaque semaine. Reviens bientôt ou inscris-toi à la newsletter.</p>
-      <div class="card-meta">
-        <span data-i18n="soon_meta">En préparation</span>
+      <div class="card-image-placeholder">?</div>
+      <div class="card-body">
+        <span class="card-game-tag tag-coming" data-i18n="coming">Bientôt</span>
+        <h3 class="card-title" data-i18n="soon_title">Prochain guide en cours...</h3>
+        <p class="card-desc" data-i18n="soon_desc">Un nouveau guide arrive chaque semaine. Reviens bientôt ou inscris-toi.</p>
+        <div class="card-meta"><span data-i18n="soon_meta">En préparation</span></div>
       </div>
     </a>
+
   </div>
 </section>
 
@@ -582,36 +282,47 @@ h1 { animation: fadeup 0.6s ease both; }
     <button class="filter-btn" onclick="filter(this,'brawlstars')">Brawl Stars</button>
   </div>
   <div class="guides-list">
+
     <a href="guide-minecraft-survie.html" class="list-card" data-game="minecraft">
-      <span class="card-game-tag tag-minecraft">Minecraft</span>
-      <h3 class="card-title" data-i18n="mc_title">Survie J1 → J30 : Guide Complet</h3>
-      <p class="card-desc" data-i18n="mc_desc">Progression optimale de spawn à l'endgame. Toutes les étapes, dans l'ordre.</p>
-      <div class="card-meta">
-        <div class="difficulty">
-          <div class="diff-dot filled"></div>
-          <div class="diff-dot filled"></div>
-          <div class="diff-dot"></div>
+      <div class="card-image-wrap">
+        <img class="card-image"
+          src="https://images.unsplash.com/photo-1607513746994-51f730a44832?w=600&q=70"
+          alt="Minecraft" onerror="this.style.display='none'">
+      </div>
+      <div class="card-body">
+        <span class="card-game-tag tag-minecraft">Minecraft</span>
+        <h3 class="card-title" data-i18n="mc_title">Survie J1 → J30 : Guide Complet</h3>
+        <p class="card-desc" data-i18n="mc_desc">Progression optimale de spawn à l'endgame.</p>
+        <div class="card-meta">
+          <div class="difficulty"><div class="diff-dot filled"></div><div class="diff-dot filled"></div><div class="diff-dot"></div></div>
+          <span data-i18n="diff_mid">Intermédiaire</span><span>·</span><span data-i18n="mc_read">~15 min</span>
         </div>
-        <span data-i18n="diff_mid">Intermédiaire</span>
-        <span>·</span>
-        <span class="read-time" data-i18n="mc_read">~15 min</span>
       </div>
     </a>
+
     <a href="guide-brawlstars-ranked.html" class="list-card" data-game="brawlstars">
-      <span class="card-game-tag tag-brawlstars">Brawl Stars</span>
-      <h3 class="card-title" data-i18n="bs_title">Mythique → Légendaire en Ranked</h3>
-      <p class="card-desc" data-i18n="bs_desc">Draft, picks, stratégies par mode. Le guide pour franchir le mur Mythique.</p>
-      <div class="card-meta">
-        <div class="difficulty">
-          <div class="diff-dot filled medium"></div>
-          <div class="diff-dot filled medium"></div>
-          <div class="diff-dot"></div>
+      <div class="bs-card-visual">
+        <div class="rank-logo-wrap">
+          <img src="rank-mythic.png" alt="Mythic" class="rank-logo">
+          <span class="rank-label mythic">Mythique</span>
         </div>
-        <span data-i18n="diff_mid">Intermédiaire</span>
-        <span>·</span>
-        <span class="read-time" data-i18n="bs_read">~12 min</span>
+        <span class="rank-arrow-big">→</span>
+        <div class="rank-logo-wrap">
+          <img src="rank-legendary.png" alt="Legendary" class="rank-logo" style="filter:drop-shadow(0 0 10px rgba(255,215,0,0.7))">
+          <span class="rank-label legendary">Légendaire</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <span class="card-game-tag tag-brawlstars">Brawl Stars</span>
+        <h3 class="card-title" data-i18n="bs_title">Mythique → Légendaire en Ranked</h3>
+        <p class="card-desc" data-i18n="bs_desc">Draft, picks, stratégies par mode.</p>
+        <div class="card-meta">
+          <div class="difficulty"><div class="diff-dot filled medium"></div><div class="diff-dot filled medium"></div><div class="diff-dot"></div></div>
+          <span data-i18n="diff_mid">Intermédiaire</span><span>·</span><span data-i18n="bs_read">~12 min</span>
+        </div>
       </div>
     </a>
+
   </div>
 </section>
 
@@ -637,114 +348,72 @@ h1 { animation: fadeup 0.6s ease both; }
 <script>
 const translations = {
   fr: {
-    nav_catalog: "Tous les guides",
-    hero_status: "Guide database · En ligne",
-    hero_line1: "DEVIENS",
-    hero_line2: "IMBATTABLE",
-    hero_line3: "SUR TES JEUX",
-    hero_desc: "Guides, soluces et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel — pour progresser vite.",
-    stat_guides: "Guides publiés",
-    stat_games: "Jeux couverts",
-    stat_freq: "Nouveau guide",
-    scroll: "Scroll",
-    featured_title: "À la une",
-    featured_sub: "Guides récents",
-    mc_title: "Survie Optimisée — Progression Jour 1 à Jour 30",
-    mc_desc: "De spawn au late game : chaque étape dans l'ordre, les priorités qui comptent, et les erreurs à éviter.",
-    mc_read: "~15 min de lecture",
-    bs_title: "Mythique → Légendaire en Ranked",
-    bs_desc: "Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.",
-    bs_read: "~12 min de lecture",
-    coming: "Bientôt",
-    soon_title: "Prochain guide en cours...",
-    soon_desc: "Un nouveau guide arrive chaque semaine. Reviens bientôt ou inscris-toi à la newsletter.",
-    soon_meta: "En préparation",
-    catalog_title: "Tous les Guides",
-    catalog_sub: "2 publiés",
-    filter_all: "Tous",
-    diff_mid: "Intermédiaire",
-    nl_title: "UN GUIDE PAR SEMAINE",
-    nl_desc: "Reçois le nouveau guide directement dans ta boîte mail. Pas de spam, juste du contenu.",
-    nl_placeholder: "ton@email.com",
-    nl_btn: "S'inscrire",
-    footer_tagline: "Guides rédigés par des joueurs, pour des joueurs",
+    nav_catalog:"Tous les guides", hero_status:"Guide database · En ligne",
+    hero_line1:"DEVIENS", hero_line2:"IMBATTABLE", hero_line3:"SUR TES JEUX",
+    hero_desc:"Guides, soluces et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel — pour progresser vite.",
+    stat_guides:"Guides publiés", stat_games:"Jeux couverts", stat_freq:"Nouveau guide", scroll:"Scroll",
+    featured_title:"À la une", featured_sub:"Guides récents",
+    mc_title:"Survie Optimisée — Progression Jour 1 à Jour 30",
+    mc_desc:"De spawn au late game : chaque étape dans l'ordre, les priorités qui comptent, et les erreurs à éviter.",
+    mc_read:"~15 min de lecture",
+    bs_title:"Mythique → Légendaire en Ranked",
+    bs_desc:"Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.",
+    bs_read:"~12 min de lecture",
+    coming:"Bientôt", soon_title:"Prochain guide en cours...",
+    soon_desc:"Un nouveau guide arrive chaque semaine. Reviens bientôt ou inscris-toi.",
+    soon_meta:"En préparation",
+    catalog_title:"Tous les Guides", catalog_sub:"2 publiés",
+    filter_all:"Tous", diff_mid:"Intermédiaire",
+    nl_title:"UN GUIDE PAR SEMAINE",
+    nl_desc:"Reçois le nouveau guide directement dans ta boîte mail. Pas de spam, juste du contenu.",
+    nl_placeholder:"ton@email.com", nl_btn:"S'inscrire",
+    footer_tagline:"Guides rédigés par des joueurs, pour des joueurs",
   },
   en: {
-    nav_catalog: "All guides",
-    hero_status: "Guide database · Online",
-    hero_line1: "BECOME",
-    hero_line2: "UNBEATABLE",
-    hero_line3: "AT YOUR GAMES",
-    hero_desc: "Guides, walkthroughs and strategies written by players. No fluff, just the essentials — to improve fast.",
-    stat_guides: "Guides published",
-    stat_games: "Games covered",
-    stat_freq: "New guide",
-    scroll: "Scroll",
-    featured_title: "Featured",
-    featured_sub: "Recent guides",
-    mc_title: "Optimized Survival — Day 1 to Day 30 Progression",
-    mc_desc: "From spawn to late game: every step in order, what actually matters, and mistakes to avoid.",
-    mc_read: "~15 min read",
-    bs_title: "Mythic → Legendary in Ranked",
-    bs_desc: "Ban phase, pick phase, in-game strategies by mode. Everything you need to break through Mythic.",
-    bs_read: "~12 min read",
-    coming: "Coming soon",
-    soon_title: "Next guide coming...",
-    soon_desc: "A new guide drops every week. Check back soon or subscribe to the newsletter.",
-    soon_meta: "In preparation",
-    catalog_title: "All Guides",
-    catalog_sub: "2 published",
-    filter_all: "All",
-    diff_mid: "Intermediate",
-    nl_title: "ONE GUIDE PER WEEK",
-    nl_desc: "Get the new guide straight to your inbox. No spam, just content.",
-    nl_placeholder: "your@email.com",
-    nl_btn: "Subscribe",
-    footer_tagline: "Guides written by players, for players",
+    nav_catalog:"All guides", hero_status:"Guide database · Online",
+    hero_line1:"BECOME", hero_line2:"UNBEATABLE", hero_line3:"AT YOUR GAMES",
+    hero_desc:"Guides, walkthroughs and strategies written by players. No fluff, just the essentials — to improve fast.",
+    stat_guides:"Guides published", stat_games:"Games covered", stat_freq:"New guide", scroll:"Scroll",
+    featured_title:"Featured", featured_sub:"Recent guides",
+    mc_title:"Optimized Survival — Day 1 to Day 30 Progression",
+    mc_desc:"From spawn to late game: every step in order, what actually matters, and mistakes to avoid.",
+    mc_read:"~15 min read",
+    bs_title:"Mythic → Legendary in Ranked",
+    bs_desc:"Ban phase, pick phase, in-game strategies by mode. Everything to break through Mythic.",
+    bs_read:"~12 min read",
+    coming:"Coming soon", soon_title:"Next guide coming...",
+    soon_desc:"A new guide drops every week. Check back soon or subscribe.",
+    soon_meta:"In preparation",
+    catalog_title:"All Guides", catalog_sub:"2 published",
+    filter_all:"All", diff_mid:"Intermediate",
+    nl_title:"ONE GUIDE PER WEEK",
+    nl_desc:"Get the new guide straight to your inbox. No spam, just content.",
+    nl_placeholder:"your@email.com", nl_btn:"Subscribe",
+    footer_tagline:"Guides written by players, for players",
   }
 };
 
 let currentLang = 'fr';
-
 function setLang(lang) {
   currentLang = lang;
   const t = translations[lang];
-
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (t[key]) el.textContent = t[key];
-  });
-
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (t[key]) el.placeholder = t[key];
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-  });
-
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if(t[k]) el.textContent = t[k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if(t[k]) el.placeholder = t[k]; });
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === lang.toUpperCase()));
   document.documentElement.lang = lang;
 }
-
 function filter(btn, game) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.list-card').forEach(card => {
-    card.style.display = (game === 'all' || card.dataset.game === game) ? 'block' : 'none';
-  });
+  document.querySelectorAll('.list-card').forEach(card => { card.style.display = (game==='all'||card.dataset.game===game)?'block':'none'; });
 }
-
 function subscribe() {
   const input = document.querySelector('.newsletter-input');
   if (input.value && input.value.includes('@')) {
     input.value = '';
-    input.placeholder = currentLang === 'fr' ? '✓ Inscrit !' : '✓ Subscribed!';
+    input.placeholder = currentLang==='fr' ? '✓ Inscrit !' : '✓ Subscribed!';
     input.style.color = '#4ade80';
-    setTimeout(() => {
-      input.placeholder = translations[currentLang].nl_placeholder;
-      input.style.color = '';
-    }, 3000);
+    setTimeout(() => { input.placeholder = translations[currentLang].nl_placeholder; input.style.color=''; }, 3000);
   }
 }
 </script>
