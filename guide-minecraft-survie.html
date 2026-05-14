@@ -3,321 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Minecraft Survie — Progression J1 à J30</title>
+<title>Minecraft Survie J1→J30 — Guide Complet | GuidesGG</title>
+<meta name="description" content="Guide complet de survie Minecraft : progression optimale du jour 1 au jour 30, de spawn à l'endgame.">
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #4ade80;
-    --green-dim: #166534;
-    --dirt: #92400e;
-    --stone: #78716c;
-    --diamond: #67e8f9;
-    --gold: #fbbf24;
-    --nether: #ef4444;
-    --end: #a78bfa;
-    --bg: #0a0a0a;
-    --bg2: #111111;
-    --bg3: #1a1a1a;
-    --text: #e5e5e5;
-    --text-dim: #737373;
-    --border: #262626;
+    --green: #4ade80; --green-dim: #166534; --diamond: #67e8f9;
+    --gold: #fbbf24; --nether: #ef4444; --end: #a78bfa;
+    --bg: #0a0a0a; --bg2: #111111; --bg3: #1a1a1a;
+    --text: #e5e5e5; --text-dim: #737373; --border: #262626;
   }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:'IBM Plex Sans',sans-serif; font-weight:300; line-height:1.7; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; height:52px; border-bottom:1px solid var(--border); background:rgba(10,10,10,0.94); backdrop-filter:blur(12px); }
+  .nav-logo { font-family:'Pixelify Sans',monospace; font-size:1.2rem; color:var(--text); text-decoration:none; }
+  .nav-logo span { color:#e8ff00; }
+  .nav-back { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--text-dim); text-decoration:none; letter-spacing:0.08em; text-transform:uppercase; transition:color 0.2s; }
+  .nav-back:hover { color:var(--text); }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-  }
+  header { border-bottom:1px solid var(--border); padding:5rem 2rem 2.5rem; max-width:860px; margin:0 auto; }
+  .tag { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--green); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:1rem; display:block; }
+  h1 { font-family:'Pixelify Sans',monospace; font-size:clamp(2rem,5vw,3.2rem); font-weight:700; line-height:1.1; color:#fff; margin-bottom:1rem; }
+  h1 span { color:var(--green); }
+  .subtitle { color:var(--text-dim); font-size:0.95rem; max-width:540px; }
+  .meta { display:flex; gap:2rem; margin-top:1.5rem; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--text-dim); flex-wrap:wrap; }
+  .meta span { color:var(--text); }
 
-  /* HEADER */
-  header {
-    border-bottom: 1px solid var(--border);
-    padding: 3rem 2rem 2rem;
-    max-width: 860px;
-    margin: 0 auto;
-    position: relative;
-  }
+  .phases-nav { max-width:860px; margin:0 auto; padding:1.5rem 2rem; display:flex; gap:0.5rem; flex-wrap:wrap; border-bottom:1px solid var(--border); }
+  .phase-pill { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; padding:0.3rem 0.75rem; border-radius:2px; letter-spacing:0.05em; text-transform:uppercase; cursor:pointer; border:1px solid transparent; text-decoration:none; transition:all 0.15s; }
+  .phase-pill.early { background:rgba(74,222,128,0.1); color:var(--green); border-color:var(--green-dim); }
+  .phase-pill.early:hover { background:rgba(74,222,128,0.2); }
+  .phase-pill.mid { background:rgba(239,68,68,0.1); color:var(--nether); border-color:#7f1d1d; }
+  .phase-pill.mid:hover { background:rgba(239,68,68,0.2); }
+  .phase-pill.late { background:rgba(167,139,250,0.1); color:var(--end); border-color:#4c1d95; }
+  .phase-pill.late:hover { background:rgba(167,139,250,0.2); }
+  .phase-pill.endgame { background:rgba(251,191,36,0.1); color:var(--gold); border-color:#78350f; }
+  .phase-pill.endgame:hover { background:rgba(251,191,36,0.2); }
 
-  .tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--green);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    display: block;
-  }
+  main { max-width:860px; margin:0 auto; padding:0 2rem 4rem; }
 
-  h1 {
-    font-family: 'Pixelify Sans', monospace;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 1rem;
-  }
+  .phase-header { margin-top:3rem; margin-bottom:0.5rem; display:flex; align-items:center; gap:1rem; }
+  .phase-label { font-family:'Pixelify Sans',monospace; font-size:1.1rem; font-weight:700; }
+  .phase-label.early { color:var(--green); } .phase-label.mid { color:var(--nether); } .phase-label.late { color:var(--end); } .phase-label.endgame { color:var(--gold); }
+  .phase-line { flex:1; height:1px; }
+  .phase-line.early { background:linear-gradient(to right, var(--green-dim), transparent); }
+  .phase-line.mid { background:linear-gradient(to right, #7f1d1d, transparent); }
+  .phase-line.late { background:linear-gradient(to right, #4c1d95, transparent); }
+  .phase-line.endgame { background:linear-gradient(to right, #78350f, transparent); }
 
-  h1 span { color: var(--green); }
+  .day-block { background:var(--bg2); border:1px solid var(--border); border-radius:4px; margin-bottom:1rem; overflow:hidden; transition:border-color 0.2s; }
+  .day-block:hover { border-color:#404040; }
+  .day-header { display:flex; align-items:center; gap:1rem; padding:1rem 1.25rem; cursor:pointer; user-select:none; }
+  .day-number { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; font-weight:500; min-width:52px; color:var(--text-dim); }
+  .day-title { font-family:'IBM Plex Mono',monospace; font-size:0.88rem; font-weight:500; color:var(--text); flex:1; }
+  .day-objective { font-size:0.72rem; color:var(--text-dim); font-family:'IBM Plex Mono',monospace; }
+  .toggle-icon { color:var(--text-dim); font-size:0.7rem; transition:transform 0.2s; }
+  .day-block.open .toggle-icon { transform:rotate(180deg); }
+  .day-content { display:none; padding:0 1.25rem 1.25rem; border-top:1px solid var(--border); }
+  .day-block.open .day-content { display:block; }
 
-  .subtitle {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-    max-width: 540px;
-    font-weight: 300;
-  }
+  .section-title { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-dim); margin-top:1rem; margin-bottom:0.5rem; }
+  .tasks { list-style:none; display:flex; flex-direction:column; gap:0.3rem; }
+  .tasks li { font-size:0.88rem; color:var(--text); padding-left:1rem; position:relative; }
+  .tasks li::before { content:'▸'; position:absolute; left:0; color:var(--text-dim); font-size:0.7rem; top:0.15rem; }
+  .highlight { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.78rem; padding:0.1rem 0.4rem; border-radius:2px; font-weight:500; }
+  .hl-green { background:rgba(74,222,128,0.12); color:var(--green); }
+  .hl-red { background:rgba(239,68,68,0.12); color:var(--nether); }
+  .hl-purple { background:rgba(167,139,250,0.12); color:var(--end); }
+  .hl-gold { background:rgba(251,191,36,0.12); color:var(--gold); }
+  .hl-cyan { background:rgba(103,232,249,0.12); color:var(--diamond); }
 
-  .meta {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--text-dim);
-  }
+  .tip-box { margin-top:0.75rem; background:var(--bg3); border-left:2px solid var(--text-dim); padding:0.6rem 0.85rem; font-size:0.82rem; color:var(--text-dim); font-style:italic; }
+  .tip-box.pro { border-left-color:var(--green); color:var(--text); }
 
-  .meta span { color: var(--text); }
+  .checklist { display:flex; flex-direction:column; gap:0.4rem; margin-top:0.5rem; }
+  .check-item { display:flex; align-items:center; gap:0.6rem; font-size:0.85rem; }
+  .check-box { width:14px; height:14px; border:1px solid var(--border); border-radius:2px; flex-shrink:0; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.6rem; transition:all 0.15s; }
+  .check-box:hover { border-color:var(--green); }
+  .check-box.checked { background:var(--green); border-color:var(--green); color:#000; }
 
-  /* PHASES NAV */
-  .phases-nav {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .phase-pill {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.68rem;
-    padding: 0.3rem 0.75rem;
-    border-radius: 2px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: 1px solid transparent;
-    text-decoration: none;
-    transition: all 0.15s;
-  }
-
-  .phase-pill.early { background: rgba(74,222,128,0.1); color: var(--green); border-color: var(--green-dim); }
-  .phase-pill.early:hover { background: rgba(74,222,128,0.2); }
-  .phase-pill.mid { background: rgba(239,68,68,0.1); color: var(--nether); border-color: #7f1d1d; }
-  .phase-pill.mid:hover { background: rgba(239,68,68,0.2); }
-  .phase-pill.late { background: rgba(167,139,250,0.1); color: var(--end); border-color: #4c1d95; }
-  .phase-pill.late:hover { background: rgba(167,139,250,0.2); }
-  .phase-pill.endgame { background: rgba(251,191,36,0.1); color: var(--gold); border-color: #78350f; }
-  .phase-pill.endgame:hover { background: rgba(251,191,36,0.2); }
-
-  /* MAIN */
-  main {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 2rem 4rem;
-  }
-
-  /* PHASE HEADER */
-  .phase-header {
-    margin-top: 3rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .phase-label {
-    font-family: 'Pixelify Sans', monospace;
-    font-size: 1.1rem;
-    font-weight: 700;
-  }
-
-  .phase-label.early { color: var(--green); }
-  .phase-label.mid { color: var(--nether); }
-  .phase-label.late { color: var(--end); }
-  .phase-label.endgame { color: var(--gold); }
-
-  .phase-line {
-    flex: 1;
-    height: 1px;
-  }
-  .phase-line.early { background: linear-gradient(to right, var(--green-dim), transparent); }
-  .phase-line.mid { background: linear-gradient(to right, #7f1d1d, transparent); }
-  .phase-line.late { background: linear-gradient(to right, #4c1d95, transparent); }
-  .phase-line.endgame { background: linear-gradient(to right, #78350f, transparent); }
-
-  /* DAY BLOCK */
-  .day-block {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-
-  .day-block:hover { border-color: #404040; }
-
-  .day-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .day-number {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    font-weight: 500;
-    min-width: 52px;
-    color: var(--text-dim);
-  }
-
-  .day-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--text);
-    flex: 1;
-  }
-
-  .day-objective {
-    font-size: 0.72rem;
-    color: var(--text-dim);
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  .toggle-icon {
-    color: var(--text-dim);
-    font-size: 0.7rem;
-    transition: transform 0.2s;
-  }
-
-  .day-block.open .toggle-icon { transform: rotate(180deg); }
-
-  .day-content {
-    display: none;
-    padding: 0 1.25rem 1.25rem;
-    border-top: 1px solid var(--border);
-  }
-
-  .day-block.open .day-content { display: block; }
-
-  /* CONTENT INSIDE */
-  .section-title {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-dim);
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .tasks {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .tasks li {
-    font-size: 0.88rem;
-    color: var(--text);
-    padding-left: 1rem;
-    position: relative;
-  }
-
-  .tasks li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--text-dim);
-    font-size: 0.7rem;
-    top: 0.15rem;
-  }
-
-  .highlight {
-    display: inline-block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    padding: 0.1rem 0.4rem;
-    border-radius: 2px;
-    font-weight: 500;
-  }
-
-  .hl-green { background: rgba(74,222,128,0.12); color: var(--green); }
-  .hl-red { background: rgba(239,68,68,0.12); color: var(--nether); }
-  .hl-purple { background: rgba(167,139,250,0.12); color: var(--end); }
-  .hl-gold { background: rgba(251,191,36,0.12); color: var(--gold); }
-  .hl-cyan { background: rgba(103,232,249,0.12); color: var(--diamond); }
-
-  .tip-box {
-    margin-top: 0.75rem;
-    background: var(--bg3);
-    border-left: 2px solid var(--text-dim);
-    padding: 0.6rem 0.85rem;
-    font-size: 0.82rem;
-    color: var(--text-dim);
-    font-style: italic;
-  }
-
-  .tip-box.pro { border-left-color: var(--green); color: var(--text); }
-
-  /* CHECKLIST */
-  .checklist {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-top: 0.5rem;
-  }
-
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-size: 0.85rem;
-  }
-
-  .check-box {
-    width: 14px;
-    height: 14px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    flex-shrink: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    transition: all 0.15s;
-  }
-
-  .check-box:hover { border-color: var(--green); }
-  .check-box.checked { background: var(--green); border-color: var(--green); color: #000; }
-
-  /* FOOTER */
-  .guide-footer {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 2rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-dim);
-  }
+  .guide-footer { max-width:860px; margin:0 auto; padding:2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--text-dim); }
 </style>
 </head>
 <body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Guides<span>GG</span></a>
+  <a href="index.html" class="nav-back">← Retour</a>
+</nav>
 
 <header>
   <span class="tag">// Guide Minecraft — Survie</span>
@@ -326,26 +100,24 @@
   <div class="meta">
     <div>Difficulté <span>Normal / Hard</span></div>
     <div>Version <span>1.21+</span></div>
-    <div>Durée estimée <span>~30 jours de jeu</span></div>
+    <div>Lecture <span>~15 min</span></div>
   </div>
 </header>
 
 <nav class="phases-nav">
-  <a href="#early" class="phase-pill early">Early Game J1–J10</a>
-  <a href="#mid" class="phase-pill mid">Mid Game J11–J21</a>
-  <a href="#late" class="phase-pill late">Late Game J22–J27</a>
+  <a href="#early" class="phase-pill early">Early J1–J10</a>
+  <a href="#mid" class="phase-pill mid">Mid J11–J21</a>
+  <a href="#late" class="phase-pill late">Late J22–J27</a>
   <a href="#endgame" class="phase-pill endgame">Endgame J28–J30</a>
 </nav>
 
 <main>
 
-  <!-- EARLY GAME -->
   <div class="phase-header" id="early">
     <span class="phase-label early">Early Game</span>
     <div class="phase-line early"></div>
   </div>
 
-  <!-- J1 -->
   <div class="day-block open">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">Jour 1</span>
@@ -356,7 +128,7 @@
     <div class="day-content">
       <p class="section-title">Actions</p>
       <ul class="tasks">
-        <li>Couper du bois dès le spawn — <span class="highlight hl-green">minimum 3 stacks</span></li>
+        <li>Couper du bois dès le spawn — <span class="highlight hl-green">32 à 64 blocs suffisent</span> pour démarrer</li>
         <li>Fabriquer établi, outils en bois, puis <span class="highlight hl-green">outils en pierre</span> rapidement</li>
         <li>Tuer des moutons pour le lit — <span class="highlight hl-red">priorité absolue</span> pour skip la nuit</li>
         <li>Miner du charbon pour les torches + four</li>
@@ -374,7 +146,6 @@
     </div>
   </div>
 
-  <!-- J2-J3 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J2 – J3</span>
@@ -384,22 +155,19 @@
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Explorer les grottes de surface pour le fer — plus rapide que miner en ligne droite</li>
+        <li>Explorer les grottes de surface pour le fer</li>
         <li>Fabriquer le <span class="highlight hl-green">bouclier en premier</span> dès que t'as du fer : item le plus rentable early game</li>
         <li>Viser full armure fer avant de descendre plus bas</li>
-        <li>Seaux d'eau : indispensables pour les chutes et la lave en mine</li>
-        <li>Installer une base temporaire avec four, coffres, lit</li>
+        <li>Seaux d'eau : indispensables pour les chutes et la lave</li>
       </ul>
-      <p class="section-title">Progression équipement</p>
+      <p class="section-title">Ordre de craft fer</p>
       <ul class="tasks">
-        <li>Bois → Pierre → <span class="highlight hl-green">Fer</span> : ne saute pas les étapes</li>
-        <li>Ordre de craft fer : bouclier → pioche → épée → armure</li>
+        <li>1. Bouclier → 2. Pioche → 3. Épée → 4. Armure</li>
       </ul>
-      <div class="tip-box">Le shield bloque 100% des dégâts projectiles et la majorité des dégâts mêlée. C'est la meilleure défense du early game, bien avant l'armure complète.</div>
+      <div class="tip-box">Le shield bloque 100% des dégâts projectiles. C'est la meilleure défense du early game, bien avant l'armure complète.</div>
     </div>
   </div>
 
-  <!-- J4-J5 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J4 – J5</span>
@@ -411,41 +179,34 @@
       <ul class="tasks">
         <li>Farm de blé, carottes ou pommes de terre près de la base</li>
         <li>Élevage vaches/moutons pour cuir et laine</li>
-        <li>Explorer dans un rayon de 500 blocs : repérer villages, grottes, biomes utiles</li>
-        <li>Mémoriser (ou noter) les coordonnées importantes</li>
-        <li>Si village trouvé : s'y installer ou le marquer — les PNJ seront cruciaux plus tard</li>
+        <li>Explorer dans un rayon de 500 blocs : villages, grottes, biomes utiles</li>
+        <li>Mémoriser les coordonnées importantes</li>
       </ul>
       <div class="tip-box pro">Un village proche = accélérateur massif. Les librarians peuvent te donner Mending et Fortune bien avant que tu les cherches naturellement.</div>
     </div>
   </div>
 
-  <!-- J6-J7 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J6 – J7</span>
       <span class="day-title">Descente Diamant</span>
-      <span class="day-objective">Objectif : pioche diamant + début table d'enchant</span>
+      <span class="day-objective">Objectif : pioche diamant + table d'enchant</span>
       <span class="toggle-icon">▼</span>
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Descendre en mine jusqu'à <span class="highlight hl-cyan">Y = -58</span> : couche optimale post-1.18</li>
-        <li>Miner en strip mine : tunnels espacés de 2 blocs pour couvrir un max de surface</li>
-        <li>Objectif minimum diamants : pioche + table d'enchantement (= 5 diamants)</li>
-        <li>Garder de l'obsidienne en tête pour le portail Nether plus tard</li>
+        <li>Descendre à <span class="highlight hl-cyan">Y = -58</span> : couche optimale post-1.18</li>
+        <li>Strip mine : tunnels espacés de 2 blocs</li>
+        <li>Objectif minimum : 5 diamants (pioche + table d'enchant)</li>
       </ul>
       <p class="section-title">Priorité d'utilisation des diamants</p>
       <ul class="tasks">
-        <li>1. <span class="highlight hl-cyan">Pioche diamant</span> (3 diamants)</li>
-        <li>2. <span class="highlight hl-cyan">Table d'enchantement</span> (2 diamants + obsidienne)</li>
-        <li>3. Épée diamant (2 diamants)</li>
-        <li>4. Armure diamant complète (24 diamants) — seulement quand t'en as assez</li>
+        <li>1. <span class="highlight hl-cyan">Pioche diamant</span> (3) → 2. <span class="highlight hl-cyan">Table d'enchant</span> (2 + obsidienne) → 3. Épée → 4. Armure complète</li>
       </ul>
-      <div class="tip-box">Y=-58 est dans les deepslate layers où les diamants sont 2× plus fréquents qu'à Y=11 (l'ancienne meta). Ce changement date de la 1.18.</div>
+      <div class="tip-box">Y=-58 est dans les deepslate layers où les diamants sont 2× plus fréquents qu'à l'ancienne couche Y=11.</div>
     </div>
   </div>
 
-  <!-- J8-J10 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J8 – J10</span>
@@ -457,26 +218,23 @@
       <ul class="tasks">
         <li>Crafter l'obsidienne (10 blocs) et ouvrir le portail</li>
         <li>Premiers enchantements sur l'épée ou la pioche</li>
-        <li>Farmer de l'XP basique (monstres, mine)</li>
+        <li>Farmer de l'XP basique</li>
       </ul>
       <p class="section-title">Checklist avant d'entrer dans le Nether</p>
       <div class="checklist">
         <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Full armure fer minimum</span></div>
         <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Bouclier dans l'inventaire</span></div>
         <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Arc + 64 flèches</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Seau d'eau (attention : ça ne marche pas dans le Nether)</span></div>
         <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Nourriture × 2 stacks</span></div>
       </div>
     </div>
   </div>
 
-  <!-- MID GAME -->
   <div class="phase-header" id="mid">
     <span class="phase-label mid">Mid Game</span>
     <div class="phase-line mid"></div>
   </div>
 
-  <!-- J11-J14 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J11 – J14</span>
@@ -486,17 +244,15 @@
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Trouver une <span class="highlight hl-red">Nether Fortress</span> : longer les coordonnées X positives ou négatives</li>
-        <li>Farmer les Blazes pour les <span class="highlight hl-red">Blaze Rods</span> (nécessaires pour l'End)</li>
-        <li>Obtenir des Ender Pearls via les Endermen du Nether ou les Piglins</li>
-        <li>Explorer les Bastions pour le butin (gold, netherite scrap parfois)</li>
+        <li>Trouver une <span class="highlight hl-red">Nether Fortress</span> en longeant les coordonnées X</li>
+        <li>Farmer les Blazes pour les <span class="highlight hl-red">Blaze Rods</span></li>
+        <li>Obtenir des Ender Pearls via les Endermen ou les Piglins</li>
         <li>Ramener Nether Wart pour les potions</li>
       </ul>
-      <div class="tip-box pro">La Nether Fortress est l'étape clé du mid game. Sans Blaze Powder, impossible de crafter les Eyes of Ender pour trouver le Stronghold.</div>
+      <div class="tip-box pro">La Nether Fortress est l'étape clé du mid game. Sans Blaze Powder, impossible de crafter les Eyes of Ender.</div>
     </div>
   </div>
 
-  <!-- J15-J18 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J15 – J18</span>
@@ -506,18 +262,14 @@
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Trouver ou construire un village proche de la base</li>
         <li>Reset les PNJ Librarians jusqu'à obtenir les enchants voulus</li>
-        <li>Priorité : <span class="highlight hl-green">Mending</span> (répare avec XP), <span class="highlight hl-green">Fortune III</span> (diamants ×3), <span class="highlight hl-green">Protection IV</span></li>
-        <li>Construire une ferme à XP basique (spawner de monstre si trouvé)</li>
-        <li>Ferme à fer optionnelle si village disponible</li>
+        <li>Priorité : <span class="highlight hl-green">Mending</span>, <span class="highlight hl-green">Fortune III</span>, <span class="highlight hl-green">Protection IV</span></li>
+        <li>Construire une ferme à XP basique</li>
       </ul>
-      <div class="tip-box">Le trading villageois est le plus grand accélérateur de progression du mid game. Avec Mending, tes outils ne cassent plus jamais. Avec Fortune III, chaque veine de diamants donne 3× plus.</div>
-      <div class="tip-box pro">Certains joueurs évitent le trading pour garder le challenge. C'est un choix valide — mais si ton objectif est de progresser vite, les villageois divisent le temps de progression par 3.</div>
+      <div class="tip-box pro">Avec Mending, tes outils ne cassent plus jamais. Avec Fortune III, chaque veine de diamants donne 3× plus.</div>
     </div>
   </div>
 
-  <!-- J19-J21 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J19 – J21</span>
@@ -528,98 +280,80 @@
     <div class="day-content">
       <ul class="tasks">
         <li>Compléter l'armure diamant avec enchants sérieux</li>
-        <li>Brasser les premières potions (force, regen, résistance au feu)</li>
-        <li>Crafter les <span class="highlight hl-purple">Eyes of Ender</span> (Blaze Powder + Ender Pearl)</li>
-        <li>Lancer les Eyes et suivre leur direction pour trianguler le Stronghold</li>
-        <li>Ne pas entrer dans le Stronghold sans avoir toute la checklist End cochée</li>
+        <li>Brasser les premières potions</li>
+        <li>Crafter les <span class="highlight hl-purple">Eyes of Ender</span> et trianguler le Stronghold</li>
       </ul>
       <p class="section-title">Méthode triangulation</p>
       <ul class="tasks">
-        <li>Lancer un Eye → noter la direction → avancer 500 blocs</li>
-        <li>Lancer un second Eye → la direction croise le premier = le Stronghold est à l'intersection</li>
-        <li>Creuser vers le bas une fois au-dessus du point d'intersection</li>
+        <li>Lancer un Eye → noter la direction → avancer 500 blocs → lancer un second Eye → creuser à l'intersection</li>
       </ul>
     </div>
   </div>
 
-  <!-- LATE GAME -->
   <div class="phase-header" id="late">
     <span class="phase-label late">Late Game</span>
     <div class="phase-line late"></div>
   </div>
 
-  <!-- J22-J24 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J22 – J24</span>
       <span class="day-title">Préparation End</span>
-      <span class="day-objective">Objectif : activer le portail + survivre l'End</span>
+      <span class="day-objective">Objectif : activer le portail</span>
       <span class="toggle-icon">▼</span>
     </div>
     <div class="day-content">
-      <ul class="tasks">
-        <li>Explorer le Stronghold, trouver la salle du portail</li>
-        <li>Placer les Eyes of Ender dans les cadres (généralement 8-10 déjà remplis)</li>
-      </ul>
-      <p class="section-title">Checklist avant d'entrer dans l'End</p>
+      <p class="section-title">Checklist avant l'End</p>
       <div class="checklist">
         <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Armure diamant enchantée (Protection IV min)</span></div>
         <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Épée diamant (Sharpness IV+)</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Arc + Infinity ou 128+ flèches</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Seau d'eau (pour les chutes)</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Nourriture × 3 stacks (golden apples inclus)</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Blocs pour grimper les piliers (64 minimum)</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Potion Slow Falling (optionnel mais recommandé)</span></div>
-        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Lit de secours (à NE PAS utiliser dans l'End — il explose)</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Arc + 128+ flèches</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Seau d'eau + nourriture × 3 stacks</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>64 blocs pour grimper les piliers</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Potion Slow Falling (recommandé)</span></div>
       </div>
     </div>
   </div>
 
-  <!-- J25 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">Jour 25</span>
       <span class="day-title">Dragon de l'End</span>
-      <span class="day-objective">Objectif : tuer le Dragon — fin de la progression principale</span>
+      <span class="day-objective">Objectif : tuer le Dragon</span>
       <span class="toggle-icon">▼</span>
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Détruire d'abord les <span class="highlight hl-purple">End Crystals</span> sur les piliers (ils régénèrent le Dragon)</li>
-        <li>Méthode efficace : arc pour les cristaux en hauteur, échelle/blocs pour grimper</li>
+        <li>Détruire d'abord les <span class="highlight hl-purple">End Crystals</span> sur les piliers</li>
         <li>Attaquer le Dragon pendant ses phases de transition au-dessus du portail</li>
-        <li>Éviter le souffle violet (End Acid) au sol — dégâts dans le temps</li>
+        <li>Éviter le souffle violet (End Acid) au sol</li>
       </ul>
-      <div class="tip-box pro">C'est techniquement la fin de la "progression officielle" du jeu. Mais pour la plupart des joueurs, c'est là que ça commence vraiment.</div>
+      <div class="tip-box pro">C'est techniquement la fin de la progression officielle. Mais pour la plupart des joueurs, c'est là que ça commence vraiment.</div>
     </div>
   </div>
 
-  <!-- J26-J27 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J26 – J27</span>
       <span class="day-title">End Cities & Élytra</span>
-      <span class="day-objective">Objectif : obtenir l'Élytra — début du vrai late game</span>
+      <span class="day-objective">Objectif : obtenir l'Élytra</span>
       <span class="toggle-icon">▼</span>
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Utiliser le portail End pour téléporter vers les End Islands (outer islands)</li>
-        <li>Explorer les <span class="highlight hl-purple">End Cities</span> pour le loot</li>
-        <li>Trouver un <span class="highlight hl-purple">End Ship</span> attaché à une End City — l'Élytra est à l'intérieur</li>
-        <li>Récupérer les <span class="highlight hl-purple">Shulker Boxes</span> : stockage portable, game-changer</li>
+        <li>Utiliser le portail End pour téléporter vers les End Islands</li>
+        <li>Trouver un <span class="highlight hl-purple">End Ship</span> — l'Élytra est à l'intérieur</li>
+        <li>Récupérer les <span class="highlight hl-purple">Shulker Boxes</span> : stockage portable</li>
       </ul>
-      <div class="tip-box pro">L'Élytra + fusées de feu d'artifice = déplacement infini dans tout le monde. C'est l'item qui change le plus le gameplay. Priorité absolue.</div>
+      <div class="tip-box pro">Élytra + fusées = déplacement infini. C'est l'item qui change le plus le gameplay. Priorité absolue.</div>
     </div>
   </div>
 
-  <!-- ENDGAME -->
   <div class="phase-header" id="endgame">
     <span class="phase-label endgame">Endgame</span>
     <div class="phase-line endgame"></div>
   </div>
 
-  <!-- J28-J30 -->
   <div class="day-block">
     <div class="day-header" onclick="toggle(this)">
       <span class="day-number">J28 – J30</span>
@@ -629,10 +363,9 @@
     </div>
     <div class="day-content">
       <ul class="tasks">
-        <li>Descendre en Nether à <span class="highlight hl-gold">Y = 14</span> pour chercher du Ancient Debris (→ Netherite)</li>
-        <li>Méthode : bed mining (explosions de lit dans le Nether) ou strip mine au TNT</li>
+        <li>Descendre en Nether à <span class="highlight hl-gold">Y = 14</span> pour le Ancient Debris</li>
         <li>Upgrader armure + outils en <span class="highlight hl-gold">Netherite</span></li>
-        <li>Préparer le Beacon (étoile du Nether → tuer le Wither)</li>
+        <li>Préparer le Beacon (tuer le Wither)</li>
       </ul>
       <p class="section-title">Fermes à construire en priorité</p>
       <ul class="tasks">
@@ -640,39 +373,24 @@
         <li><span class="highlight hl-green">Gold Farm</span> (Nether) — gold + XP passifs</li>
         <li><span class="highlight hl-green">Gunpowder Farm</span> — pour les fusées Élytra</li>
         <li><span class="highlight hl-green">Sugar Cane Farm</span> — pour les livres d'enchantement</li>
-        <li>Mob farm générale — XP + drops variés</li>
       </ul>
-      <div class="tip-box pro">À partir de J30, la direction du jeu est entièrement libre. Certains joueurs passent les 6 mois suivants sur la redstone, d'autres sur les méga-builds, d'autres sur le PvP. Les fermes sont la fondation de tout ça.</div>
-      <div class="tip-box">Consensus communauté technique : les fermes automatiques sont le vrai endgame. Pas parce que c'est la fin — mais parce qu'elles libèrent ton temps pour ce qui te plaît vraiment dans le jeu.</div>
+      <div class="tip-box pro">À partir de J30, la direction est entièrement libre : redstone, méga-builds, PvP... Les fermes sont la fondation de tout ça.</div>
     </div>
   </div>
 
 </main>
 
 <footer class="guide-footer">
-  <span>Minecraft Survie — Guide J1→J30 · Version 1.21+</span>
-  <span>Consensus communauté · Mise à jour 2024</span>
+  <span>Minecraft Survie J1→J30 · Version 1.21+</span>
+  <span>GuidesGG © 2025</span>
 </footer>
 
 <script>
-  function toggle(header) {
-    const block = header.closest('.day-block');
-    block.classList.toggle('open');
-  }
-
-  function check(box) {
-    box.classList.toggle('checked');
-    box.textContent = box.classList.contains('checked') ? '✓' : '';
-  }
-
-  // Nav smooth scroll
-  document.querySelectorAll('.phase-pill').forEach(pill => {
-    pill.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(pill.getAttribute('href'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
+function toggle(header) { header.closest('.day-block').classList.toggle('open'); }
+function check(box) { box.classList.toggle('checked'); box.textContent = box.classList.contains('checked') ? '✓' : ''; }
+document.querySelectorAll('.phase-pill').forEach(pill => {
+  pill.addEventListener('click', e => { e.preventDefault(); document.querySelector(pill.getAttribute('href'))?.scrollIntoView({behavior:'smooth',block:'start'}); });
+});
 </script>
 </body>
 </html>
