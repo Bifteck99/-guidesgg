@@ -29,6 +29,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .lang-btn.active{background:var(--accent);color:#000;}
 .lang-btn:not(.active):hover{background:var(--border2);color:var(--text);}
 
+/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 4rem;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(232,255,0,0.04) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 60%,rgba(0,212,255,0.03) 0%,transparent 70%);}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.3;mask-image:radial-gradient(ellipse at center,black 20%,transparent 80%);}
@@ -48,17 +49,19 @@ h1 .line3{color:var(--text-dim);font-size:clamp(2rem,6vw,5rem);}
 .scroll-hint::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--text-dim),transparent);animation:scrollline 1.5s ease-in-out infinite;}
 @keyframes scrollline{0%,100%{opacity:1;transform:scaleY(1)}50%{opacity:0.3;transform:scaleY(0.5)}}
 
+/* SECTIONS */
 .section-wrap{padding:5rem 2.5rem;border-top:1px solid var(--border);}
 .section-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.5rem;}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;letter-spacing:0.05em;}
 .section-count{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--text-dim);}
 
-/* CARDS */
+/* GRID */
 .featured-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:auto auto;gap:1px;background:var(--border);border:1px solid var(--border);}
 .guide-card{background:var(--bg2);position:relative;overflow:hidden;text-decoration:none;display:block;transition:background 0.2s;}
 .guide-card:hover{background:var(--bg3);}
 .guide-card.hero-card{grid-row:1/3;}
 
+/* IMAGE WRAP */
 .card-image-wrap{overflow:hidden;position:relative;}
 .card-image{width:100%;height:180px;object-fit:cover;display:block;filter:brightness(0.65) saturate(1.1);transition:filter 0.3s,transform 0.4s;}
 .guide-card:hover .card-image{filter:brightness(0.8) saturate(1.2);transform:scale(1.04);}
@@ -66,17 +69,28 @@ h1 .line3{color:var(--text-dim);font-size:clamp(2rem,6vw,5rem);}
 .card-image-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:70px;background:linear-gradient(to bottom,transparent,var(--bg2));pointer-events:none;}
 .guide-card:hover .card-image-wrap::after{background:linear-gradient(to bottom,transparent,var(--bg3));}
 
+/* SVG VISUALS — ne cassent jamais */
+.mc-visual{width:100%;display:block;}
+.hero-card .mc-visual{height:260px;}
+.card-image-wrap .mc-visual{height:180px;}
+
 /* BS RANK VISUAL */
 .bs-card-visual{width:100%;height:180px;background:linear-gradient(135deg,#1a0a2e 0%,#2d1b4e 40%,#1a0a2e 100%);display:flex;align-items:center;justify-content:center;gap:1.5rem;position:relative;overflow:hidden;}
 .bs-card-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(180,100,255,0.15) 0%,transparent 70%);}
 .rank-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:0.4rem;z-index:1;}
-.rank-logo{width:60px;height:60px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(180,100,255,0.6));transition:transform 0.3s;}
+.rank-logo{width:56px;height:56px;object-fit:contain;filter:drop-shadow(0 0 12px rgba(180,100,255,0.6));transition:transform 0.3s;}
 .guide-card:hover .rank-logo{transform:scale(1.1);}
 .rank-label{font-family:'DM Mono',monospace;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;}
 .rank-label.mythic{color:#c084fc;}
 .rank-label.legendary{color:#ffd700;}
 .rank-arrow-big{font-size:1.5rem;color:rgba(255,255,255,0.3);z-index:1;animation:arrowpulse 1.5s ease-in-out infinite;}
 @keyframes arrowpulse{0%,100%{opacity:0.3;transform:translateX(0)}50%{opacity:0.8;transform:translateX(4px)}}
+
+/* TROPHY VISUAL */
+.trophy-visual{width:100%;height:180px;background:linear-gradient(135deg,#1a1000 0%,#3d2800 40%,#1a1000 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.trophy-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(245,158,11,0.15) 0%,transparent 70%);}
+.trophy-img{width:80px;height:80px;object-fit:contain;filter:drop-shadow(0 0 16px rgba(245,158,11,0.7));z-index:1;transition:transform 0.3s;}
+.guide-card:hover .trophy-img{transform:scale(1.1);}
 
 .card-image-placeholder{width:100%;height:180px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--border2);}
 .hero-card .card-image-placeholder{height:260px;}
@@ -85,11 +99,12 @@ h1 .line3{color:var(--text-dim);font-size:clamp(2rem,6vw,5rem);}
 .card-game-tag{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;padding:0.2rem 0.5rem;border-radius:2px;display:inline-block;margin-bottom:0.75rem;}
 .tag-minecraft{background:rgba(74,222,128,0.15);color:#4ade80;}
 .tag-brawlstars{background:rgba(180,100,255,0.15);color:#c084fc;}
+.tag-trophy{background:rgba(245,158,11,0.15);color:#f59e0b;}
 .tag-coming{background:rgba(100,100,100,0.15);color:#888;}
 .card-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;line-height:1.1;letter-spacing:0.03em;margin-bottom:0.5rem;color:var(--text);}
 .hero-card .card-title{font-size:2rem;}
 .card-desc{font-size:0.82rem;color:var(--text-dim);line-height:1.5;margin-bottom:1rem;}
-.card-meta{display:flex;align-items:center;gap:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);}
+.card-meta{display:flex;align-items:center;gap:1rem;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);flex-wrap:wrap;}
 .card-meta .read-time{color:var(--text-mid);}
 .card-arrow{position:absolute;top:0.75rem;right:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.6);transition:transform 0.2s,color 0.2s;z-index:2;background:rgba(0,0,0,0.5);padding:0.2rem 0.4rem;border-radius:2px;}
 .guide-card:hover .card-arrow{transform:translate(3px,-3px);color:var(--accent);}
@@ -101,9 +116,9 @@ h1 .line3{color:var(--text-dim);font-size:clamp(2rem,6vw,5rem);}
 .guides-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
 .list-card{background:var(--bg2);text-decoration:none;display:block;transition:background 0.15s;overflow:hidden;}
 .list-card:hover{background:var(--bg3);}
-.list-card .card-image{height:140px;}
-.list-card .bs-card-visual{height:140px;}
-.list-card .bs-card-visual .rank-logo{width:44px;height:44px;}
+.list-card .card-image,.list-card .mc-visual,.list-card .bs-card-visual,.list-card .trophy-visual{height:140px;}
+.list-card .bs-card-visual .rank-logo{width:40px;height:40px;}
+.list-card .trophy-img{width:56px;height:56px;}
 .list-card .card-image-placeholder{height:140px;}
 .list-card .card-image-wrap::after{background:linear-gradient(to bottom,transparent,var(--bg2));}
 .list-card:hover .card-image-wrap::after{background:linear-gradient(to bottom,transparent,var(--bg3));}
@@ -115,14 +130,13 @@ h1 .line3{color:var(--text-dim);font-size:clamp(2rem,6vw,5rem);}
 .diff-dot.filled{background:var(--accent);}
 .diff-dot.filled.medium{background:var(--accent2);}
 
-/* IDEAS SECTION */
+/* IDEAS */
 .ideas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
 .idea-card{background:var(--bg2);padding:1.25rem;transition:background 0.15s;}
 .idea-card:hover{background:var(--bg3);}
 .idea-game{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;}
-.idea-game.mc{color:#4ade80;}
-.idea-game.bs{color:#c084fc;}
-.idea-title{font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.9rem;color:var(--text);margin-bottom:0.3rem;}
+.idea-game.mc{color:#4ade80;} .idea-game.bs{color:#c084fc;}
+.idea-title{font-weight:500;font-size:0.9rem;color:var(--text);margin-bottom:0.3rem;}
 .idea-desc{font-size:0.78rem;color:var(--text-dim);line-height:1.5;}
 .idea-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:0.58rem;text-transform:uppercase;letter-spacing:0.08em;padding:0.15rem 0.4rem;border-radius:2px;margin-top:0.5rem;}
 .badge-hot{background:rgba(255,107,53,0.15);color:var(--accent2);}
@@ -149,13 +163,8 @@ h1{animation:fadeup 0.6s ease both;}
 .hero-counter{animation:fadeup 0.5s ease both;}
 .hero-sub{animation:fadeup 0.7s 0.1s ease both;}
 
-@media(max-width:768px){
-  .featured-grid{grid-template-columns:1fr;}
-  .guide-card.hero-card{grid-row:auto;}
-  .newsletter{flex-direction:column;}
-  .newsletter-form{min-width:0;width:100%;}
-  nav .nav-links{display:none;}
-}
+@media(max-width:900px){.featured-grid{grid-template-columns:1fr 1fr;}.guide-card.hero-card{grid-row:auto;grid-column:1/3;}}
+@media(max-width:600px){.featured-grid{grid-template-columns:1fr;}.guide-card.hero-card{grid-column:auto;}.newsletter{flex-direction:column;}.newsletter-form{min-width:0;width:100%;}nav .nav-links{display:none;}}
 </style>
 </head>
 <body>
@@ -186,9 +195,9 @@ h1{animation:fadeup 0.6s ease both;}
     <span class="line3" data-i18n="hero_line3">SUR TES JEUX</span>
   </h1>
   <div class="hero-sub">
-    <p class="hero-desc" data-i18n="hero_desc">Guides et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel — pour progresser vite.</p>
+    <p class="hero-desc" data-i18n="hero_desc">Guides et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel.</p>
     <div class="hero-stats">
-      <div class="stat"><span class="stat-num">2</span><span class="stat-label" data-i18n="stat_guides">Guides publiés</span></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label" data-i18n="stat_guides">Guides publiés</span></div>
       <div class="stat"><span class="stat-num">2</span><span class="stat-label" data-i18n="stat_games">Jeux couverts</span></div>
       <div class="stat"><span class="stat-num">1/sem</span><span class="stat-label" data-i18n="stat_freq">Nouveau guide</span></div>
     </div>
@@ -200,14 +209,71 @@ h1{animation:fadeup 0.6s ease both;}
 <section class="section-wrap" id="minecraft">
   <div class="section-header">
     <h2 class="section-title" data-i18n="featured_title">À la une</h2>
-    <span class="section-count" data-i18n="featured_sub">2 guides publiés</span>
+    <span class="section-count" data-i18n="featured_sub">3 guides publiés</span>
   </div>
   <div class="featured-grid">
 
+    <!-- MINECRAFT — SVG overworld, ne casse jamais -->
     <a href="guide-minecraft-survie.html" class="guide-card hero-card">
       <span class="card-arrow">↗</span>
       <div class="card-image-wrap">
-        <img class="card-image" src="https://images.unsplash.com/photo-1607513746994-51f730a44832?w=800&q=80" alt="Minecraft Overworld" onerror="this.style.display='none'">
+        <svg class="mc-visual" viewBox="0 0 800 260" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a6e"/><stop offset="100%" stop-color="#4a7fbf"/></linearGradient>
+            <linearGradient id="gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a8a3c"/><stop offset="100%" stop-color="#3d6128"/></linearGradient>
+            <linearGradient id="dirt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7a5c3a"/><stop offset="100%" stop-color="#5a3e22"/></linearGradient>
+          </defs>
+          <!-- Ciel -->
+          <rect width="800" height="260" fill="url(#sky)"/>
+          <!-- Soleil -->
+          <rect x="680" y="28" width="36" height="36" fill="#fffaaa" rx="2"/>
+          <!-- Nuages pixelisés -->
+          <rect x="100" y="50" width="80" height="16" fill="white" opacity="0.85"/>
+          <rect x="116" y="38" width="48" height="16" fill="white" opacity="0.85"/>
+          <rect x="340" y="70" width="60" height="14" fill="white" opacity="0.7"/>
+          <rect x="352" y="58" width="36" height="14" fill="white" opacity="0.7"/>
+          <!-- Montagnes lointaines -->
+          <polygon points="0,180 80,100 160,160 240,80 320,140 400,60 480,130 560,90 640,150 720,70 800,120 800,180" fill="#2d5a1e" opacity="0.6"/>
+          <polygon points="0,190 60,130 140,170 200,110 280,160 360,100 440,150 520,120 600,160 680,100 760,140 800,130 800,190" fill="#3d7a2a" opacity="0.8"/>
+          <!-- Terrain herbe -->
+          <rect x="0" y="190" width="800" height="20" fill="#5a8a3c"/>
+          <!-- Herbe détails pixelisés -->
+          <rect x="20" y="184" width="8" height="8" fill="#4ade80" opacity="0.7"/>
+          <rect x="60" y="182" width="8" height="10" fill="#4ade80" opacity="0.6"/>
+          <rect x="120" y="184" width="8" height="8" fill="#4ade80" opacity="0.8"/>
+          <rect x="200" y="183" width="8" height="9" fill="#4ade80" opacity="0.6"/>
+          <rect x="280" y="184" width="8" height="8" fill="#4ade80" opacity="0.7"/>
+          <rect x="350" y="182" width="8" height="10" fill="#4ade80" opacity="0.5"/>
+          <rect x="420" y="184" width="8" height="8" fill="#4ade80" opacity="0.8"/>
+          <rect x="500" y="183" width="8" height="9" fill="#4ade80" opacity="0.6"/>
+          <rect x="580" y="184" width="8" height="8" fill="#4ade80" opacity="0.7"/>
+          <rect x="650" y="182" width="8" height="10" fill="#4ade80" opacity="0.6"/>
+          <rect x="720" y="184" width="8" height="8" fill="#4ade80" opacity="0.8"/>
+          <!-- Terre -->
+          <rect x="0" y="208" width="800" height="52" fill="#7a5c3a"/>
+          <!-- Arbres pixelisés -->
+          <rect x="80" y="140" width="16" height="52" fill="#5a3e22"/>
+          <rect x="64" y="108" width="48" height="48" fill="#2d8a1e"/>
+          <rect x="72" y="96" width="32" height="16" fill="#2d8a1e"/>
+          <rect x="240" y="150" width="16" height="42" fill="#5a3e22"/>
+          <rect x="224" y="118" width="48" height="48" fill="#3d9a2e"/>
+          <rect x="232" y="106" width="32" height="16" fill="#3d9a2e"/>
+          <rect x="560" y="145" width="16" height="47" fill="#5a3e22"/>
+          <rect x="544" y="113" width="48" height="48" fill="#2d8a1e"/>
+          <rect x="552" y="101" width="32" height="16" fill="#2d8a1e"/>
+          <!-- Vache pixel -->
+          <rect x="390" y="178" width="32" height="16" fill="white"/>
+          <rect x="382" y="170" width="16" height="12" fill="white"/>
+          <rect x="390" y="192" width="6" height="8" fill="#555"/>
+          <rect x="402" y="192" width="6" height="8" fill="#555"/>
+          <rect x="412" y="192" width="6" height="8" fill="#555"/>
+          <rect x="390" y="174" width="10" height="8" fill="#333" opacity="0.5"/>
+          <!-- Steve pixel hint -->
+          <rect x="490" y="166" width="14" height="16" fill="#c8a878"/>
+          <rect x="490" y="158" width="14" height="10" fill="#4a7abf"/>
+          <rect x="490" y="182" width="6" height="10" fill="#4444aa"/>
+          <rect x="498" y="182" width="6" height="10" fill="#4444aa"/>
+        </svg>
       </div>
       <div class="card-body">
         <span class="card-game-tag tag-minecraft">Minecraft</span>
@@ -216,10 +282,12 @@ h1{animation:fadeup 0.6s ease both;}
         <div class="card-meta">
           <span class="read-time" data-i18n="mc_read">~15 min de lecture</span>
           <span>·</span><span>Version 1.21+</span>
+          <span>·</span><span>🇫🇷 🇬🇧</span>
         </div>
       </div>
     </a>
 
+    <!-- BRAWL STARS RANKED -->
     <a href="guide-brawlstars-ranked.html" class="guide-card" id="brawlstars">
       <span class="card-arrow">↗</span>
       <div class="bs-card-visual">
@@ -238,20 +306,28 @@ h1{animation:fadeup 0.6s ease both;}
         <h3 class="card-title" data-i18n="bs_title">Mythique → Légendaire en Ranked</h3>
         <p class="card-desc" data-i18n="bs_desc">Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.</p>
         <div class="card-meta">
-          <span class="read-time" data-i18n="bs_read">~12 min de lecture</span>
+          <span class="read-time" data-i18n="bs_read">~12 min</span>
           <span>·</span><span>Ranked (draft)</span>
+          <span>·</span><span>🇫🇷 🇬🇧</span>
         </div>
       </div>
     </a>
 
-    <a href="#" class="guide-card">
+    <!-- BRAWL STARS TROPHEES -->
+    <a href="guide-brawlstars-trophees.html" class="guide-card">
       <span class="card-arrow">↗</span>
-      <div class="card-image-placeholder">?</div>
+      <div class="trophy-visual">
+        <img src="icone_prestige.png" alt="Prestige" class="trophy-img">
+      </div>
       <div class="card-body">
-        <span class="card-game-tag tag-coming" data-i18n="coming">Bientôt</span>
-        <h3 class="card-title" data-i18n="soon_title">Prochain guide en cours...</h3>
-        <p class="card-desc" data-i18n="soon_desc">Un nouveau guide chaque semaine. Inscris-toi à la newsletter pour être notifié.</p>
-        <div class="card-meta"><span data-i18n="soon_meta">En préparation</span></div>
+        <span class="card-game-tag tag-trophy">Brawl Stars · Trophées</span>
+        <h3 class="card-title" data-i18n="bs2_title">Push de Trophées — Guide Complet</h3>
+        <p class="card-desc" data-i18n="bs2_desc">Système, seuils clés, méthodes pour monter vite. Tout ce qu'il faut savoir sur le ladder de trophées.</p>
+        <div class="card-meta">
+          <span class="read-time" data-i18n="bs2_read">~10 min</span>
+          <span>·</span><span>2025</span>
+          <span>·</span><span>🇫🇷 🇬🇧</span>
+        </div>
       </div>
     </a>
 
@@ -262,7 +338,7 @@ h1{animation:fadeup 0.6s ease both;}
 <section class="section-wrap" id="guides">
   <div class="section-header">
     <h2 class="section-title" data-i18n="catalog_title">Tous les Guides</h2>
-    <span class="section-count" data-i18n="catalog_sub">2 publiés</span>
+    <span class="section-count" data-i18n="catalog_sub">3 publiés</span>
   </div>
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filter(this,'all')" data-i18n="filter_all">Tous</button>
@@ -273,12 +349,27 @@ h1{animation:fadeup 0.6s ease both;}
 
     <a href="guide-minecraft-survie.html" class="list-card" data-game="minecraft">
       <div class="card-image-wrap">
-        <img class="card-image" src="https://images.unsplash.com/photo-1607513746994-51f730a44832?w=600&q=70" alt="Minecraft" onerror="this.style.display='none'">
+        <svg class="mc-visual" viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="600" height="140" fill="#1a3a6e"/>
+          <rect x="0" y="0" width="600" height="140" fill="url(#sky)"/>
+          <polygon points="0,100 80,50 160,80 240,30 320,70 400,20 480,65 560,40 600,55 600,100" fill="#2d5a1e" opacity="0.7"/>
+          <rect x="0" y="100" width="600" height="18" fill="#5a8a3c"/>
+          <rect x="0" y="116" width="600" height="24" fill="#7a5c3a"/>
+          <rect x="60" y="66" width="12" height="36" fill="#5a3e22"/>
+          <rect x="50" y="46" width="32" height="28" fill="#3d9a2e"/>
+          <rect x="200" y="72" width="12" height="30" fill="#5a3e22"/>
+          <rect x="190" y="54" width="32" height="26" fill="#2d8a1e"/>
+          <rect x="420" y="68" width="12" height="34" fill="#5a3e22"/>
+          <rect x="410" y="50" width="32" height="26" fill="#3d9a2e"/>
+          <rect x="30" y="14" width="60" height="12" fill="white" opacity="0.8"/>
+          <rect x="38" y="6" width="44" height="12" fill="white" opacity="0.8"/>
+          <rect x="300" y="22" width="48" height="10" fill="white" opacity="0.65"/>
+        </svg>
       </div>
       <div class="card-body">
         <span class="card-game-tag tag-minecraft">Minecraft</span>
-        <h3 class="card-title" data-i18n="mc_title">Survie J1 → J30 : Guide Complet</h3>
-        <p class="card-desc" data-i18n="mc_desc">Progression optimale de spawn à l'endgame. Toutes les étapes, dans l'ordre.</p>
+        <h3 class="card-title" data-i18n="mc_title_short">Survie J1→J30</h3>
+        <p class="card-desc" data-i18n="mc_desc_short">Progression optimale de spawn à l'endgame.</p>
         <div class="card-meta">
           <div class="difficulty"><div class="diff-dot filled"></div><div class="diff-dot filled"></div><div class="diff-dot"></div></div>
           <span data-i18n="diff_mid">Intermédiaire</span><span>·</span><span data-i18n="mc_read">~15 min</span>
@@ -300,8 +391,8 @@ h1{animation:fadeup 0.6s ease both;}
       </div>
       <div class="card-body">
         <span class="card-game-tag tag-brawlstars">Brawl Stars · Ranked</span>
-        <h3 class="card-title" data-i18n="bs_title">Mythique → Légendaire en Ranked</h3>
-        <p class="card-desc" data-i18n="bs_desc">Draft, picks, stratégies par mode.</p>
+        <h3 class="card-title" data-i18n="bs_title_short">Mythique → Légendaire</h3>
+        <p class="card-desc" data-i18n="bs_desc_short">Draft, picks, stratégies par mode.</p>
         <div class="card-meta">
           <div class="difficulty"><div class="diff-dot filled medium"></div><div class="diff-dot filled medium"></div><div class="diff-dot"></div></div>
           <span data-i18n="diff_mid">Intermédiaire</span><span>·</span><span data-i18n="bs_read">~12 min</span>
@@ -309,59 +400,37 @@ h1{animation:fadeup 0.6s ease both;}
       </div>
     </a>
 
+    <a href="guide-brawlstars-trophees.html" class="list-card" data-game="brawlstars">
+      <div class="trophy-visual">
+        <img src="icone_prestige.png" alt="Prestige" class="trophy-img">
+      </div>
+      <div class="card-body">
+        <span class="card-game-tag tag-trophy">Brawl Stars · Trophées</span>
+        <h3 class="card-title" data-i18n="bs2_title_short">Push de Trophées</h3>
+        <p class="card-desc" data-i18n="bs2_desc_short">Système, seuils, méthodes pour monter vite.</p>
+        <div class="card-meta">
+          <div class="difficulty"><div class="diff-dot filled"></div><div class="diff-dot filled"></div><div class="diff-dot"></div></div>
+          <span data-i18n="diff_mid">Intermédiaire</span><span>·</span><span data-i18n="bs2_read">~10 min</span>
+        </div>
+      </div>
+    </a>
+
   </div>
 </section>
 
-<!-- IDEES D'ARTICLES -->
-<section class="section-wrap" id="ideas">
+<!-- PROCHAINS GUIDES -->
+<section class="section-wrap">
   <div class="section-header">
     <h2 class="section-title" data-i18n="ideas_title">Prochains Guides</h2>
-    <span class="section-count" data-i18n="ideas_sub">Idées en cours</span>
+    <span class="section-count" data-i18n="ideas_sub">En préparation</span>
   </div>
   <div class="ideas-grid">
-
-    <div class="idea-card">
-      <p class="idea-game mc">Minecraft</p>
-      <p class="idea-title" data-i18n="idea1_title">Redstone Débutant : Les 10 Mécanismes Clés</p>
-      <p class="idea-desc" data-i18n="idea1_desc">Portes automatiques, piston doors, trappes — les bases sans se noyer dans la complexité.</p>
-      <span class="idea-badge badge-demand" data-i18n="badge_demand">Très demandé</span>
-    </div>
-
-    <div class="idea-card">
-      <p class="idea-game mc">Minecraft</p>
-      <p class="idea-title" data-i18n="idea2_title">Fermes Automatiques : Par où Commencer</p>
-      <p class="idea-desc" data-i18n="idea2_desc">Iron farm, mob farm, XP farm — ordre de construction et méthodes les plus simples en 2025.</p>
-      <span class="idea-badge badge-hot" data-i18n="badge_hot">Populaire</span>
-    </div>
-
-    <div class="idea-card">
-      <p class="idea-game mc">Minecraft</p>
-      <p class="idea-title" data-i18n="idea3_title">Guide Nether Complet : Survie et Ressources</p>
-      <p class="idea-desc" data-i18n="idea3_desc">Bastions, Fortresses, Piglins, Ancient Debris — tout ce qu'il y a à savoir sur la dimension infernale.</p>
-      <span class="idea-badge badge-easy" data-i18n="badge_easy">Facile à écrire</span>
-    </div>
-
-    <div class="idea-card">
-      <p class="idea-game bs">Brawl Stars</p>
-      <p class="idea-title" data-i18n="idea4_title">Quel Brawler Choisir Selon son Style de Jeu</p>
-      <p class="idea-desc" data-i18n="idea4_desc">Agressif, défensif, support, contrôle — trouver son rôle naturel pour grimper plus vite.</p>
-      <span class="idea-badge badge-demand" data-i18n="badge_demand">Très demandé</span>
-    </div>
-
-    <div class="idea-card">
-      <p class="idea-game bs">Brawl Stars</p>
-      <p class="idea-title" data-i18n="idea5_title">Push de Trophées : Comment Grimper Efficacement</p>
-      <p class="idea-desc" data-i18n="idea5_desc">Contrairement au Ranked, le push de trophées n'a pas de draft. Différentes règles, différentes stratégies.</p>
-      <span class="idea-badge badge-hot" data-i18n="badge_hot">Populaire</span>
-    </div>
-
-    <div class="idea-card">
-      <p class="idea-game bs">Brawl Stars</p>
-      <p class="idea-title" data-i18n="idea6_title">Maîtriser les Supers : Timing et Placement</p>
-      <p class="idea-desc" data-i18n="idea6_desc">La super est souvent la différence entre gagner et perdre un round. Comment la charger et la placer intelligemment.</p>
-      <span class="idea-badge badge-easy" data-i18n="badge_easy">Facile à écrire</span>
-    </div>
-
+    <div class="idea-card"><p class="idea-game mc">Minecraft</p><p class="idea-title" data-i18n="idea1">Redstone Débutant : Les 10 Mécanismes Clés</p><p class="idea-desc" data-i18n="idea1d">Portes automatiques, piston doors, trappes — les bases sans se noyer.</p><span class="idea-badge badge-demand" data-i18n="badge_demand">Très demandé</span></div>
+    <div class="idea-card"><p class="idea-game mc">Minecraft</p><p class="idea-title" data-i18n="idea2">Fermes Automatiques : Par où Commencer</p><p class="idea-desc" data-i18n="idea2d">Iron farm, mob farm, XP farm — ordre de construction et méthodes simples.</p><span class="idea-badge badge-hot" data-i18n="badge_hot">Populaire</span></div>
+    <div class="idea-card"><p class="idea-game mc">Minecraft</p><p class="idea-title" data-i18n="idea3">Guide Nether Complet</p><p class="idea-desc" data-i18n="idea3d">Bastions, Fortresses, Ancient Debris — tout sur la dimension infernale.</p><span class="idea-badge badge-easy" data-i18n="badge_easy">Facile à écrire</span></div>
+    <div class="idea-card"><p class="idea-game bs">Brawl Stars</p><p class="idea-title" data-i18n="idea4">Quel Brawler Selon son Style de Jeu</p><p class="idea-desc" data-i18n="idea4d">Agressif, défensif, support, contrôle — trouver son rôle naturel.</p><span class="idea-badge badge-demand" data-i18n="badge_demand">Très demandé</span></div>
+    <div class="idea-card"><p class="idea-game bs">Brawl Stars</p><p class="idea-title" data-i18n="idea5">Maîtriser les Supers : Timing et Placement</p><p class="idea-desc" data-i18n="idea5d">La super est souvent la différence entre gagner et perdre un round.</p><span class="idea-badge badge-hot" data-i18n="badge_hot">Populaire</span></div>
+    <div class="idea-card"><p class="idea-game bs">Brawl Stars</p><p class="idea-title" data-i18n="idea6">Guide Brawl Ball Complet</p><p class="idea-desc" data-i18n="idea6d">Positionnement, compositions, supers — dominer le mode le plus joué.</p><span class="idea-badge badge-easy" data-i18n="badge_easy">Facile à écrire</span></div>
   </div>
 </section>
 
@@ -386,104 +455,97 @@ h1{animation:fadeup 0.6s ease both;}
 </footer>
 
 <script>
-const translations = {
-  fr: {
-    nav_catalog:"Tous les guides", hero_status:"Guide database · En ligne",
-    hero_line1:"DEVIENS", hero_line2:"IMBATTABLE", hero_line3:"SUR TES JEUX",
-    hero_desc:"Guides et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel — pour progresser vite.",
-    stat_guides:"Guides publiés", stat_games:"Jeux couverts", stat_freq:"Nouveau guide", scroll:"Scroll",
-    featured_title:"À la une", featured_sub:"2 guides publiés",
+const t = {
+  fr:{
+    nav_catalog:"Tous les guides",hero_status:"Guide database · En ligne",
+    hero_line1:"DEVIENS",hero_line2:"IMBATTABLE",hero_line3:"SUR TES JEUX",
+    hero_desc:"Guides et stratégies rédigés par des joueurs. Pas de remplissage, que l'essentiel.",
+    stat_guides:"Guides publiés",stat_games:"Jeux couverts",stat_freq:"Nouveau guide",scroll:"Scroll",
+    featured_title:"À la une",featured_sub:"3 guides publiés",
     mc_title:"Survie Optimisée — Progression Jour 1 à Jour 30",
     mc_desc:"De spawn au late game : chaque étape dans l'ordre, les priorités qui comptent, et les erreurs à éviter.",
-    mc_read:"~15 min de lecture",
-    bs_title:"Mythique → Légendaire en Ranked",
-    bs_desc:"Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.",
-    bs_read:"~12 min de lecture",
-    rank_mythic:"Mythique", rank_legendary:"Légendaire",
-    coming:"Bientôt", soon_title:"Prochain guide en cours...",
-    soon_desc:"Un nouveau guide chaque semaine. Inscris-toi à la newsletter pour être notifié.",
-    soon_meta:"En préparation",
-    catalog_title:"Tous les Guides", catalog_sub:"2 publiés",
-    filter_all:"Tous", diff_mid:"Intermédiaire",
-    ideas_title:"Prochains Guides", ideas_sub:"Idées en cours",
-    idea1_title:"Redstone Débutant : Les 10 Mécanismes Clés",
-    idea1_desc:"Portes automatiques, piston doors, trappes — les bases sans se noyer dans la complexité.",
-    idea2_title:"Fermes Automatiques : Par où Commencer",
-    idea2_desc:"Iron farm, mob farm, XP farm — ordre de construction et méthodes les plus simples en 2025.",
-    idea3_title:"Guide Nether Complet : Survie et Ressources",
-    idea3_desc:"Bastions, Fortresses, Piglins, Ancient Debris — tout ce qu'il y a à savoir sur le Nether.",
-    idea4_title:"Quel Brawler Choisir Selon son Style de Jeu",
-    idea4_desc:"Agressif, défensif, support, contrôle — trouver son rôle naturel pour grimper plus vite.",
-    idea5_title:"Push de Trophées : Comment Grimper Efficacement",
-    idea5_desc:"Contrairement au Ranked, le push de trophées n'a pas de draft. Différentes règles, différentes stratégies.",
-    idea6_title:"Maîtriser les Supers : Timing et Placement",
-    idea6_desc:"La super est souvent la différence entre gagner et perdre. Comment la charger et la placer intelligemment.",
-    badge_demand:"Très demandé", badge_hot:"Populaire", badge_easy:"Facile à écrire",
-    nl_title:"UN GUIDE PAR SEMAINE",
-    nl_desc:"Reçois le nouveau guide directement dans ta boîte mail. Pas de spam, juste du contenu.",
-    nl_placeholder:"ton@email.com", nl_btn:"S'inscrire",
+    mc_title_short:"Survie J1→J30",mc_desc_short:"Progression optimale de spawn à l'endgame.",
+    mc_read:"~15 min",
+    bs_title:"Mythique → Légendaire en Ranked",bs_desc:"Ban, pick, stratégies par mode. Tout ce qu'il faut pour franchir le mur Mythique.",
+    bs_title_short:"Mythique → Légendaire",bs_desc_short:"Draft, picks, stratégies par mode.",bs_read:"~12 min",
+    bs2_title:"Push de Trophées — Guide Complet",bs2_desc:"Système, seuils clés, méthodes pour monter vite. Tout sur le ladder de trophées.",
+    bs2_title_short:"Push de Trophées",bs2_desc_short:"Système, seuils, méthodes pour monter vite.",bs2_read:"~10 min",
+    rank_mythic:"Mythique",rank_legendary:"Légendaire",
+    catalog_title:"Tous les Guides",catalog_sub:"3 publiés",filter_all:"Tous",diff_mid:"Intermédiaire",
+    ideas_title:"Prochains Guides",ideas_sub:"En préparation",
+    idea1:"Redstone Débutant : Les 10 Mécanismes Clés",idea1d:"Portes automatiques, piston doors, trappes — les bases sans se noyer.",
+    idea2:"Fermes Automatiques : Par où Commencer",idea2d:"Iron farm, mob farm, XP farm — ordre de construction et méthodes simples.",
+    idea3:"Guide Nether Complet",idea3d:"Bastions, Fortresses, Ancient Debris — tout sur la dimension infernale.",
+    idea4:"Quel Brawler Selon son Style de Jeu",idea4d:"Agressif, défensif, support, contrôle — trouver son rôle naturel.",
+    idea5:"Maîtriser les Supers : Timing et Placement",idea5d:"La super est souvent la différence entre gagner et perdre un round.",
+    idea6:"Guide Brawl Ball Complet",idea6d:"Positionnement, compositions, supers — dominer le mode le plus joué.",
+    badge_demand:"Très demandé",badge_hot:"Populaire",badge_easy:"Facile à écrire",
+    nl_title:"UN GUIDE PAR SEMAINE",nl_desc:"Reçois le nouveau guide dans ta boîte mail. Pas de spam, juste du contenu.",
+    nl_placeholder:"ton@email.com",nl_btn:"S'inscrire",
     footer_tagline:"Guides rédigés par des joueurs, pour des joueurs",
   },
-  en: {
-    nav_catalog:"All guides", hero_status:"Guide database · Online",
-    hero_line1:"BECOME", hero_line2:"UNBEATABLE", hero_line3:"AT YOUR GAMES",
-    hero_desc:"Guides and strategies written by players. No fluff, just the essentials — to improve fast.",
-    stat_guides:"Guides published", stat_games:"Games covered", stat_freq:"New guide", scroll:"Scroll",
-    featured_title:"Featured", featured_sub:"2 guides published",
+  en:{
+    nav_catalog:"All guides",hero_status:"Guide database · Online",
+    hero_line1:"BECOME",hero_line2:"UNBEATABLE",hero_line3:"AT YOUR GAMES",
+    hero_desc:"Guides and strategies written by players. No fluff, just the essentials.",
+    stat_guides:"Guides published",stat_games:"Games covered",stat_freq:"New guide",scroll:"Scroll",
+    featured_title:"Featured",featured_sub:"3 guides published",
     mc_title:"Optimized Survival — Day 1 to Day 30 Progression",
     mc_desc:"From spawn to late game: every step in order, what actually matters, and mistakes to avoid.",
-    mc_read:"~15 min read",
-    bs_title:"Mythic → Legendary in Ranked",
-    bs_desc:"Ban phase, pick phase, in-game strategies by mode. Everything to break through Mythic.",
-    bs_read:"~12 min read",
-    rank_mythic:"Mythic", rank_legendary:"Legendary",
-    coming:"Coming soon", soon_title:"Next guide coming...",
-    soon_desc:"A new guide every week. Subscribe to the newsletter to be notified.",
-    soon_meta:"In preparation",
-    catalog_title:"All Guides", catalog_sub:"2 published",
-    filter_all:"All", diff_mid:"Intermediate",
-    ideas_title:"Upcoming Guides", ideas_sub:"Ideas in progress",
-    idea1_title:"Beginner Redstone: The 10 Key Mechanisms",
-    idea1_desc:"Automatic doors, piston doors, traps — the basics without drowning in complexity.",
-    idea2_title:"Automatic Farms: Where to Start",
-    idea2_desc:"Iron farm, mob farm, XP farm — build order and simplest methods in 2025.",
-    idea3_title:"Complete Nether Guide: Survival and Resources",
-    idea3_desc:"Bastions, Fortresses, Piglins, Ancient Debris — everything to know about the Nether.",
-    idea4_title:"Which Brawler to Choose Based on Your Playstyle",
-    idea4_desc:"Aggressive, defensive, support, control — find your natural role to climb faster.",
-    idea5_title:"Trophy Pushing: How to Climb Efficiently",
-    idea5_desc:"Unlike Ranked, trophy pushing has no draft. Different rules, different strategies.",
-    idea6_title:"Mastering Supers: Timing and Placement",
-    idea6_desc:"The super is often the difference between winning and losing. How to charge and place it smartly.",
-    badge_demand:"High demand", badge_hot:"Popular", badge_easy:"Easy to write",
-    nl_title:"ONE GUIDE PER WEEK",
-    nl_desc:"Get the new guide straight to your inbox. No spam, just content.",
-    nl_placeholder:"your@email.com", nl_btn:"Subscribe",
+    mc_title_short:"Survival D1→D30",mc_desc_short:"Optimal progression from spawn to endgame.",
+    mc_read:"~15 min",
+    bs_title:"Mythic → Legendary in Ranked",bs_desc:"Ban phase, pick phase, in-game strategies. Everything to break through Mythic.",
+    bs_title_short:"Mythic → Legendary",bs_desc_short:"Draft, picks, strategies by mode.",bs_read:"~12 min",
+    bs2_title:"Trophy Pushing — Complete Guide",bs2_desc:"System explained, key thresholds, best methods to climb fast on the trophy ladder.",
+    bs2_title_short:"Trophy Pushing",bs2_desc_short:"System, thresholds, methods to climb fast.",bs2_read:"~10 min",
+    rank_mythic:"Mythic",rank_legendary:"Legendary",
+    catalog_title:"All Guides",catalog_sub:"3 published",filter_all:"All",diff_mid:"Intermediate",
+    ideas_title:"Upcoming Guides",ideas_sub:"In progress",
+    idea1:"Beginner Redstone: The 10 Key Mechanisms",idea1d:"Auto doors, piston doors, traps — the basics without getting lost.",
+    idea2:"Automatic Farms: Where to Start",idea2d:"Iron farm, mob farm, XP farm — build order and simplest methods.",
+    idea3:"Complete Nether Guide",idea3d:"Bastions, Fortresses, Ancient Debris — everything about the Nether.",
+    idea4:"Which Brawler Fits Your Playstyle",idea4d:"Aggressive, defensive, support, control — find your natural role.",
+    idea5:"Mastering Supers: Timing and Placement",idea5d:"The super is often the difference between winning and losing.",
+    idea6:"Complete Brawl Ball Guide",idea6d:"Positioning, compositions, supers — dominate the most played mode.",
+    badge_demand:"High demand",badge_hot:"Popular",badge_easy:"Easy to write",
+    nl_title:"ONE GUIDE PER WEEK",nl_desc:"Get the new guide straight to your inbox. No spam, just content.",
+    nl_placeholder:"your@email.com",nl_btn:"Subscribe",
     footer_tagline:"Guides written by players, for players",
   }
 };
 
-let currentLang = 'fr';
-function setLang(lang) {
-  currentLang = lang;
-  const t = translations[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if(t[k]) el.textContent = t[k]; });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if(t[k]) el.placeholder = t[k]; });
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.textContent === lang.toUpperCase()));
-  document.documentElement.lang = lang;
+let lang = 'fr';
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k=el.getAttribute('data-i18n'); if(t[l][k]) el.textContent=t[l][k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k=el.getAttribute('data-i18n-placeholder'); if(t[l][k]) el.placeholder=t[l][k]; });
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent===l.toUpperCase()));
+  document.documentElement.lang = l;
+
+  // Redirect guide links to EN versions when switching
+  document.querySelectorAll('a[href^="guide-"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if(l === 'en') {
+      a.href = href.replace('.html', '-en.html').replace('-en-en', '-en');
+    } else {
+      a.href = href.replace('-en.html', '.html');
+    }
+  });
 }
+
 function filter(btn, game) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.list-card').forEach(card => { card.style.display = (game==='all'||card.dataset.game===game)?'block':'none'; });
+  document.querySelectorAll('.list-card').forEach(card => { card.style.display=(game==='all'||card.dataset.game===game)?'block':'none'; });
 }
+
 function subscribe() {
   const input = document.querySelector('.newsletter-input');
-  if (input.value && input.value.includes('@')) {
-    input.value = '';
-    input.placeholder = currentLang==='fr' ? '✓ Inscrit !' : '✓ Subscribed!';
-    input.style.color = '#4ade80';
-    setTimeout(() => { input.placeholder = translations[currentLang].nl_placeholder; input.style.color=''; }, 3000);
+  if(input.value && input.value.includes('@')) {
+    input.value='';
+    input.placeholder = lang==='fr' ? '✓ Inscrit !' : '✓ Subscribed!';
+    input.style.color='#4ade80';
+    setTimeout(()=>{ input.placeholder=t[lang].nl_placeholder; input.style.color=''; }, 3000);
   }
 }
 </script>

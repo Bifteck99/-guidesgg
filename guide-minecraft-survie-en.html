@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft Survival Guide Day 1 to Day 30 | GuidesGG</title>
+<meta name="description" content="Complete Minecraft survival guide: optimal progression from Day 1 to Day 30, from spawn to endgame.">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --green:#4ade80;--green-dim:#166534;--diamond:#67e8f9;--gold:#fbbf24;--nether:#ef4444;--end:#a78bfa;--bg:#0a0a0a;--bg2:#111111;--bg3:#1a1a1a;--text:#e5e5e5;--text-dim:#737373;--border:#262626; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;line-height:1.7;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.94);backdrop-filter:blur(12px);}
+  .nav-logo{font-family:'Pixelify Sans',monospace;font-size:1.2rem;color:var(--text);text-decoration:none;}
+  .nav-logo span{color:#e8ff00;}
+  .nav-right{display:flex;align-items:center;gap:1rem;}
+  .nav-back{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-back:hover{color:var(--text);}
+  .lang-link{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--green);border:1px solid var(--green-dim);padding:0.2rem 0.5rem;text-decoration:none;letter-spacing:0.08em;}
+  header{border-bottom:1px solid var(--border);padding:5rem 2rem 2.5rem;max-width:860px;margin:0 auto;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--green);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;display:block;}
+  h1{font-family:'Pixelify Sans',monospace;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;color:#fff;margin-bottom:1rem;}
+  h1 span{color:var(--green);}
+  .subtitle{color:var(--text-dim);font-size:0.95rem;max-width:540px;}
+  .meta{display:flex;gap:2rem;margin-top:1.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text-dim);flex-wrap:wrap;}
+  .meta span{color:var(--text);}
+  .phases-nav{max-width:860px;margin:0 auto;padding:1.5rem 2rem;display:flex;gap:0.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);}
+  .phase-pill{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;padding:0.3rem 0.75rem;border-radius:2px;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;border:1px solid transparent;text-decoration:none;transition:all 0.15s;}
+  .phase-pill.early{background:rgba(74,222,128,0.1);color:var(--green);border-color:var(--green-dim);}
+  .phase-pill.mid{background:rgba(239,68,68,0.1);color:var(--nether);border-color:#7f1d1d;}
+  .phase-pill.late{background:rgba(167,139,250,0.1);color:var(--end);border-color:#4c1d95;}
+  .phase-pill.endgame{background:rgba(251,191,36,0.1);color:var(--gold);border-color:#78350f;}
+  main{max-width:860px;margin:0 auto;padding:0 2rem 4rem;}
+  .phase-header{margin-top:3rem;margin-bottom:0.5rem;display:flex;align-items:center;gap:1rem;}
+  .phase-label{font-family:'Pixelify Sans',monospace;font-size:1.1rem;font-weight:700;}
+  .phase-label.early{color:var(--green);}.phase-label.mid{color:var(--nether);}.phase-label.late{color:var(--end);}.phase-label.endgame{color:var(--gold);}
+  .phase-line{flex:1;height:1px;}
+  .phase-line.early{background:linear-gradient(to right,var(--green-dim),transparent);}
+  .phase-line.mid{background:linear-gradient(to right,#7f1d1d,transparent);}
+  .phase-line.late{background:linear-gradient(to right,#4c1d95,transparent);}
+  .phase-line.endgame{background:linear-gradient(to right,#78350f,transparent);}
+  .day-block{background:var(--bg2);border:1px solid var(--border);border-radius:4px;margin-bottom:1rem;overflow:hidden;transition:border-color 0.2s;}
+  .day-block:hover{border-color:#404040;}
+  .day-header{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;cursor:pointer;user-select:none;}
+  .day-number{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;font-weight:500;min-width:60px;color:var(--text-dim);}
+  .day-title{font-family:'IBM Plex Mono',monospace;font-size:0.88rem;font-weight:500;color:var(--text);flex:1;}
+  .day-objective{font-size:0.72rem;color:var(--text-dim);font-family:'IBM Plex Mono',monospace;}
+  .toggle-icon{color:var(--text-dim);font-size:0.7rem;transition:transform 0.2s;}
+  .day-block.open .toggle-icon{transform:rotate(180deg);}
+  .day-content{display:none;padding:0 1.25rem 1.25rem;border-top:1px solid var(--border);}
+  .day-block.open .day-content{display:block;}
+  .section-title{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);margin-top:1rem;margin-bottom:0.5rem;}
+  .tasks{list-style:none;display:flex;flex-direction:column;gap:0.3rem;}
+  .tasks li{font-size:0.88rem;color:var(--text);padding-left:1rem;position:relative;}
+  .tasks li::before{content:'▸';position:absolute;left:0;color:var(--text-dim);font-size:0.7rem;top:0.15rem;}
+  .highlight{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;padding:0.1rem 0.4rem;border-radius:2px;font-weight:500;}
+  .hl-green{background:rgba(74,222,128,0.12);color:var(--green);}
+  .hl-red{background:rgba(239,68,68,0.12);color:var(--nether);}
+  .hl-purple{background:rgba(167,139,250,0.12);color:var(--end);}
+  .hl-gold{background:rgba(251,191,36,0.12);color:var(--gold);}
+  .hl-cyan{background:rgba(103,232,249,0.12);color:var(--diamond);}
+  .tip-box{margin-top:0.75rem;background:var(--bg3);border-left:2px solid var(--text-dim);padding:0.6rem 0.85rem;font-size:0.82rem;color:var(--text-dim);font-style:italic;}
+  .tip-box.pro{border-left-color:var(--green);color:var(--text);}
+  .checklist{display:flex;flex-direction:column;gap:0.4rem;margin-top:0.5rem;}
+  .check-item{display:flex;align-items:center;gap:0.6rem;font-size:0.85rem;}
+  .check-box{width:14px;height:14px;border:1px solid var(--border);border-radius:2px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.6rem;transition:all 0.15s;}
+  .check-box:hover{border-color:var(--green);}
+  .check-box.checked{background:var(--green);border-color:var(--green);color:#000;}
+  .guide-footer{max-width:860px;margin:0 auto;padding:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--text-dim);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Guides<span>GG</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Back</a>
+    <a href="guide-minecraft-survie.html" class="lang-link">🇫🇷 FR</a>
+  </div>
+</nav>
+
+<header>
+  <span class="tag">// Minecraft Guide — Survival</span>
+  <h1>Progression <span>Day 1 → Day 30</span></h1>
+  <p class="subtitle">From spawn to late game: every step in order, with the priorities that actually matter.</p>
+  <div class="meta">
+    <div>Difficulty <span>Normal / Hard</span></div>
+    <div>Version <span>1.21+</span></div>
+    <div>Read time <span>~15 min</span></div>
+  </div>
+</header>
+
+<nav class="phases-nav">
+  <a href="#early" class="phase-pill early">Early D1–D10</a>
+  <a href="#mid" class="phase-pill mid">Mid D11–D21</a>
+  <a href="#late" class="phase-pill late">Late D22–D27</a>
+  <a href="#endgame" class="phase-pill endgame">Endgame D28–D30</a>
+</nav>
+
+<main>
+  <div class="phase-header" id="early"><span class="phase-label early">Early Game</span><div class="phase-line early"></div></div>
+
+  <div class="day-block open">
+    <div class="day-header" onclick="toggle(this)">
+      <span class="day-number">Day 1</span><span class="day-title">Spawn & Surviving Night 1</span><span class="day-objective">Goal: survive the first night</span><span class="toggle-icon">▼</span>
+    </div>
+    <div class="day-content">
+      <p class="section-title">Actions</p>
+      <ul class="tasks">
+        <li>Chop wood right away — <span class="highlight hl-green">32 to 64 blocks is enough</span> to get started</li>
+        <li>Craft a workbench, wooden tools, then <span class="highlight hl-green">stone tools</span> as fast as possible</li>
+        <li>Kill sheep for a bed — <span class="highlight hl-red">absolute priority</span> to skip the night</li>
+        <li>Mine coal for torches + furnace</li>
+        <li>Build a temporary shelter before nightfall (even a 5×5 box)</li>
+        <li>Secure food: pigs, cows, chickens near spawn</li>
+      </ul>
+      <p class="section-title">End of day checklist</p>
+      <div class="checklist">
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Stone tools crafted</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Bed placed inside shelter</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Stable food supply (≥10 items)</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Shelter closed with a door</span></div>
+      </div>
+      <div class="tip-box pro">The bed is the most important item on Day 1. No bed = you endure the night. With a bed = you skip it and keep your momentum.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D2 – D3</span><span class="day-title">Surface Mining & Iron</span><span class="day-objective">Goal: full iron armor + shield</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Explore surface caves for iron — faster than strip mining</li>
+        <li>Craft the <span class="highlight hl-green">shield first</span> as soon as you have iron: the most cost-effective early game item</li>
+        <li>Aim for full iron armor before going deeper</li>
+        <li>Water buckets: essential for falls and lava</li>
+      </ul>
+      <p class="section-title">Iron craft priority</p>
+      <ul class="tasks"><li>1. Shield → 2. Pickaxe → 3. Sword → 4. Armor</li></ul>
+      <div class="tip-box">The shield blocks 100% of projectile damage. It's the best early game defense, far better than a full armor set.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D4 – D5</span><span class="day-title">Base & Stable Resources</span><span class="day-objective">Goal: food autonomy + exploration</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Set up a wheat, carrot, or potato farm near your base</li>
+        <li>Breed cows/sheep for leather and wool</li>
+        <li>Explore within a 500-block radius: villages, caves, useful biomes</li>
+        <li>Note important coordinates</li>
+      </ul>
+      <div class="tip-box pro">A nearby village is a massive accelerator. Librarian villagers can give you Mending and Fortune long before you'd find them naturally.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D6 – D7</span><span class="day-title">Diamond Mining</span><span class="day-objective">Goal: diamond pickaxe + enchanting table</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Dig down to <span class="highlight hl-cyan">Y = -58</span>: optimal layer since 1.18</li>
+        <li>Strip mine: tunnels spaced 2 blocks apart</li>
+        <li>Minimum goal: 5 diamonds (pickaxe + enchanting table)</li>
+      </ul>
+      <p class="section-title">Diamond usage priority</p>
+      <ul class="tasks"><li>1. <span class="highlight hl-cyan">Diamond pickaxe</span> (3) → 2. <span class="highlight hl-cyan">Enchanting table</span> (2 + obsidian) → 3. Sword → 4. Full armor</li></ul>
+      <div class="tip-box">Y=-58 is in the deepslate layers where diamonds are 2× more frequent than the old Y=11 meta.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D8 – D10</span><span class="day-title">Nether Preparation</span><span class="day-objective">Goal: portal open + first enchant</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Craft obsidian (10 blocks) and open the portal</li>
+        <li>Get first enchantments on your sword or pickaxe</li>
+        <li>Farm some basic XP</li>
+      </ul>
+      <p class="section-title">Checklist before entering the Nether</p>
+      <div class="checklist">
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Full iron armor minimum</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Shield in inventory</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Bow + 64 arrows</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Food × 2 stacks</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-header" id="mid"><span class="phase-label mid">Mid Game</span><div class="phase-line mid"></div></div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D11 – D14</span><span class="day-title">Nether Exploration</span><span class="day-objective">Goal: Blaze rods + Ender Pearls</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Find a <span class="highlight hl-red">Nether Fortress</span> by following X coordinates</li>
+        <li>Farm Blazes for <span class="highlight hl-red">Blaze Rods</span></li>
+        <li>Get Ender Pearls via Endermen or Piglins</li>
+        <li>Bring back Nether Wart for potions</li>
+      </ul>
+      <div class="tip-box pro">The Nether Fortress is the key mid-game milestone. Without Blaze Powder, you can't craft Eyes of Ender to find the Stronghold.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D15 – D18</span><span class="day-title">Villager Trading</span><span class="day-objective">Goal: Mending + Fortune + Protection IV</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Reset Librarian villagers until you get the enchants you want</li>
+        <li>Priority: <span class="highlight hl-green">Mending</span>, <span class="highlight hl-green">Fortune III</span>, <span class="highlight hl-green">Protection IV</span></li>
+        <li>Build a basic XP farm</li>
+      </ul>
+      <div class="tip-box pro">With Mending, your tools never break again. With Fortune III, each diamond vein gives 3× more drops.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D19 – D21</span><span class="day-title">Full Diamond + Triangulation</span><span class="day-objective">Goal: find the Stronghold</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Complete diamond armor with serious enchants</li>
+        <li>Brew first potions</li>
+        <li>Craft <span class="highlight hl-purple">Eyes of Ender</span> and triangulate the Stronghold</li>
+      </ul>
+      <p class="section-title">Triangulation method</p>
+      <ul class="tasks"><li>Throw an Eye → note the direction → move 500 blocks → throw a second Eye → dig down at the intersection</li></ul>
+    </div>
+  </div>
+
+  <div class="phase-header" id="late"><span class="phase-label late">Late Game</span><div class="phase-line late"></div></div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D22 – D24</span><span class="day-title">End Preparation</span><span class="day-objective">Goal: activate the End portal</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <p class="section-title">Pre-End checklist</p>
+      <div class="checklist">
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Enchanted diamond armor (Protection IV min)</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Diamond sword (Sharpness IV+)</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Bow + 128+ arrows</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Water bucket + food × 3 stacks</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>64 blocks to climb pillars</span></div>
+        <div class="check-item"><div class="check-box" onclick="check(this)"></div><span>Slow Falling potion (recommended)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">Day 25</span><span class="day-title">Ender Dragon</span><span class="day-objective">Goal: kill the Dragon</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Destroy <span class="highlight hl-purple">End Crystals</span> on pillars first — they regenerate the Dragon</li>
+        <li>Attack the Dragon during its transition phases above the portal</li>
+        <li>Avoid the purple breath (End Acid) on the ground</li>
+      </ul>
+      <div class="tip-box pro">This is technically the end of the "official" game progression. But for most players, this is where it really begins.</div>
+    </div>
+  </div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D26 – D27</span><span class="day-title">End Cities & Elytra</span><span class="day-objective">Goal: get the Elytra</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Use the End gateway to teleport to the outer End Islands</li>
+        <li>Find an <span class="highlight hl-purple">End Ship</span> — the Elytra is inside</li>
+        <li>Collect <span class="highlight hl-purple">Shulker Boxes</span>: portable storage</li>
+      </ul>
+      <div class="tip-box pro">Elytra + firework rockets = infinite movement. It's the single item that changes gameplay the most. Absolute priority.</div>
+    </div>
+  </div>
+
+  <div class="phase-header" id="endgame"><span class="phase-label endgame">Endgame</span><div class="phase-line endgame"></div></div>
+
+  <div class="day-block">
+    <div class="day-header" onclick="toggle(this)"><span class="day-number">D28 – D30</span><span class="day-title">Netherite & Automatic Farms</span><span class="day-objective">Goal: max gear + automation</span><span class="toggle-icon">▼</span></div>
+    <div class="day-content">
+      <ul class="tasks">
+        <li>Mine in the Nether at <span class="highlight hl-gold">Y = 14</span> for Ancient Debris</li>
+        <li>Upgrade armor + tools to <span class="highlight hl-gold">Netherite</span></li>
+        <li>Prepare the Beacon (kill the Wither)</li>
+      </ul>
+      <p class="section-title">Farms to build first</p>
+      <ul class="tasks">
+        <li><span class="highlight hl-green">Iron Farm</span> — unlimited iron, the foundation of everything</li>
+        <li><span class="highlight hl-green">Gold Farm</span> (Nether) — passive gold + XP</li>
+        <li><span class="highlight hl-green">Gunpowder Farm</span> — for Elytra rockets</li>
+        <li><span class="highlight hl-green">Sugar Cane Farm</span> — for enchantment books</li>
+      </ul>
+      <div class="tip-box pro">From Day 30 onward, the direction is entirely up to you: redstone, mega-builds, PvP... Farms are the foundation of all of it.</div>
+    </div>
+  </div>
+</main>
+
+<footer class="guide-footer">
+  <span>Minecraft Survival D1→D30 · Version 1.21+</span>
+  <span>GuidesGG © 2025</span>
+</footer>
+
+<script>
+function toggle(h){h.closest('.day-block').classList.toggle('open');}
+function check(b){b.classList.toggle('checked');b.textContent=b.classList.contains('checked')?'✓':'';}
+document.querySelectorAll('.phase-pill').forEach(p=>{p.addEventListener('click',e=>{e.preventDefault();document.querySelector(p.getAttribute('href'))?.scrollIntoView({behavior:'smooth',block:'start'});});});
+</script>
+</body>
+</html>
