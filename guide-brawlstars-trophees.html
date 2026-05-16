@@ -4,149 +4,122 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Push de Trophées Brawl Stars — Guide Complet 2025 | GuidesGG</title>
-<meta name="description" content="Comment monter rapidement en trophées sur Brawl Stars : système expliqué, meilleures méthodes, mental et différence avec le Ranked.">
+<meta name="description" content="Comment monter rapidement en trophées sur Brawl Stars : système expliqué, paliers, meilleures méthodes, mental et différence avec le Ranked.">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#08080f; --bg2:#0f0f1a; --bg3:#16161f;
-  --border:#1f1f2e; --border2:#2a2a3a;
-  --text:#f0f0ff; --text-dim:#666680; --text-mid:#9999bb;
-  --trophy:#f59e0b; --trophy2:#fcd34d;
-  --blue:#4fc3f7; --green:#69f0ae; --red:#ff5252; --purple:#b388ff;
-  --mythic:#c084fc;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+:root{--bg:#08080f;--bg2:#0f0f1a;--bg3:#16161f;--border:#1f1f2e;--border2:#2a2a3a;--text:#f0f0ff;--text-dim:#666680;--text-mid:#9999bb;--trophy:#f59e0b;--trophy2:#fcd34d;--blue:#4fc3f7;--green:#69f0ae;--red:#ff5252;--purple:#b388ff;--mythic:#c084fc;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden;}
-
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:56px;border-bottom:1px solid var(--border);background:rgba(8,8,15,0.94);backdrop-filter:blur(12px);}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:var(--text);text-decoration:none;}
-.nav-logo span{color:#e8ff00;}
-.nav-back{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
-.nav-back:hover{color:var(--text);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:var(--text);text-decoration:none;}.nav-logo span{color:#e8ff00;}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.nav-back{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text-dim);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}.nav-back:hover{color:var(--text);}
+.lang-link{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--trophy);border:1px solid rgba(245,158,11,0.4);padding:0.2rem 0.5rem;text-decoration:none;letter-spacing:0.08em;}
 .nav-game-tag{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--trophy);border:1px solid rgba(245,158,11,0.4);padding:0.25rem 0.6rem;letter-spacing:0.08em;text-transform:uppercase;}
 
 /* HERO */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
-.hero-image-wrap{width:100%;height:320px;position:relative;overflow:hidden;}
-.hero-image{width:100%;height:100%;object-fit:cover;filter:brightness(0.4) saturate(1.3);}
+.hero-image-wrap{width:100%;height:320px;position:relative;overflow:hidden;background:linear-gradient(135deg,#1a1000 0%,#3d2800 40%,#1a1000 100%);display:flex;align-items:center;justify-content:center;}
 .hero-image-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,var(--bg) 100%);}
+.hero-prestige-img{width:140px;height:140px;object-fit:contain;filter:drop-shadow(0 0 30px rgba(245,158,11,0.6));z-index:1;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 2.5rem 2.5rem;z-index:2;}
-
-.mode-note{display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text-dim);margin-bottom:1rem;padding:0.4rem 0.8rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:2px;}
-.mode-note strong{color:var(--trophy);}
-
+.mode-note{display:inline-flex;align-items:center;gap:0.5rem;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text-dim);margin-bottom:1rem;padding:0.4rem 0.8rem;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:2px;}.mode-note strong{color:var(--trophy);}
 h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,7vw,5rem);line-height:0.95;letter-spacing:0.02em;max-width:800px;margin-bottom:1.2rem;}
 h1 em{font-style:normal;color:var(--trophy);}
-
-.hero-meta{display:flex;gap:2rem;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text-dim);flex-wrap:wrap;}
-.hero-meta span{color:var(--text-mid);}
+.hero-meta{display:flex;gap:2rem;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--text-dim);flex-wrap:wrap;}.hero-meta span{color:var(--text-mid);}
 
 /* TOC */
 .toc{max-width:860px;margin:3rem auto;padding:0 2.5rem;}
 .toc-inner{background:var(--bg2);border:1px solid var(--border);padding:1.5rem 2rem;}
 .toc-title{font-family:'DM Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);margin-bottom:1rem;}
 .toc-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
-.toc-list li a{display:flex;align-items:center;gap:0.8rem;text-decoration:none;color:var(--text-mid);font-size:0.88rem;transition:color 0.15s;}
-.toc-list li a:hover{color:var(--text);}
+.toc-list li a{display:flex;align-items:center;gap:0.8rem;text-decoration:none;color:var(--text-mid);font-size:0.88rem;transition:color 0.15s;}.toc-list li a:hover{color:var(--text);}
 .toc-num{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);min-width:20px;}
 
-/* MAIN */
 main{max-width:860px;margin:0 auto;padding:0 2.5rem 6rem;}
-
 .chapter{margin-bottom:4rem;}
 .chapter-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
 .chapter-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;line-height:1;color:var(--border2);}
 .chapter-info{flex:1;}
 .chapter-label{font-family:'DM Mono',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);margin-bottom:0.3rem;}
 .chapter-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;line-height:1;color:var(--trophy);}
+p{font-size:0.92rem;color:var(--text-mid);margin-bottom:1rem;}p strong{color:var(--text);font-weight:500;}
 
-p{font-size:0.92rem;color:var(--text-mid);margin-bottom:1rem;}
-p strong{color:var(--text);font-weight:500;}
-
-/* TROPHY SCALE */
-.trophy-scale{display:flex;flex-direction:column;gap:0.5rem;margin:1.5rem 0;}
-.scale-row{display:flex;align-items:center;gap:1rem;background:var(--bg2);border:1px solid var(--border);padding:0.75rem 1rem;border-radius:2px;}
-.scale-range{font-family:'DM Mono',monospace;font-size:0.75rem;font-weight:500;min-width:130px;color:var(--text);}
-.scale-bar{flex:1;height:6px;border-radius:3px;background:var(--border2);overflow:hidden;}
-.scale-fill{height:100%;border-radius:3px;transition:width 0.3s;}
+/* TROPHY SCALE — paliers corrects */
+.trophy-scale{display:flex;flex-direction:column;gap:0.4rem;margin:1.5rem 0;}
+.scale-row{display:flex;align-items:center;gap:1rem;background:var(--bg2);border:1px solid var(--border);padding:0.6rem 1rem;border-radius:2px;transition:border-color 0.2s;}
+.scale-row:hover{border-color:var(--border2);}
+.scale-range{font-family:'DM Mono',monospace;font-size:0.72rem;font-weight:500;min-width:160px;color:var(--text);}
+.scale-bar{flex:1;height:5px;border-radius:3px;background:var(--border2);overflow:hidden;}
+.scale-fill{height:100%;border-radius:3px;}
 .fill-easy{background:var(--green);}
 .fill-medium{background:var(--trophy);}
 .fill-hard{background:var(--red);}
 .scale-label{font-size:0.78rem;color:var(--text-dim);min-width:200px;}
 
+/* PRESTIGE BLOCK */
+.prestige-block{background:linear-gradient(135deg,rgba(245,158,11,0.06),rgba(192,132,252,0.04));border:1px solid rgba(245,158,11,0.2);padding:1.5rem 2rem;margin:2rem 0;display:flex;gap:1.5rem;align-items:center;}
+.prestige-img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(245,158,11,0.5));flex-shrink:0;}
+.prestige-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.05em;color:var(--trophy);margin-bottom:0.4rem;}
+.prestige-desc{font-size:0.85rem;color:var(--text-mid);margin:0;}
+
 /* RULES */
 .rules{display:flex;flex-direction:column;gap:0.75rem;margin:1rem 0;}
-.rule-card{background:var(--bg2);border:1px solid var(--border);padding:1rem 1.25rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.2s;}
-.rule-card:hover{border-color:var(--border2);}
+.rule-card{background:var(--bg2);border:1px solid var(--border);padding:1rem 1.25rem;display:flex;gap:1rem;align-items:flex-start;transition:border-color 0.2s;}.rule-card:hover{border-color:var(--border2);}
 .rule-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.1rem;}
 .rule-content{flex:1;}
 .rule-title{font-weight:500;font-size:0.9rem;color:var(--text);margin-bottom:0.3rem;}
 .rule-desc{font-size:0.82rem;color:var(--text-dim);margin:0;line-height:1.5;}
 
-/* HIGHLIGHT BOX */
+/* HBOX */
 .hbox{background:var(--bg2);border-left:3px solid var(--trophy);padding:1rem 1.25rem;margin:1.25rem 0;font-size:0.88rem;color:var(--text-mid);}
-.hbox.green{border-left-color:var(--green);}
-.hbox.blue{border-left-color:var(--blue);}
-.hbox.red{border-left-color:var(--red);}
-.hbox.purple{border-left-color:var(--purple);}
+.hbox.green{border-left-color:var(--green);}.hbox.blue{border-left-color:var(--blue);}.hbox.red{border-left-color:var(--red);}
 .hbox strong{color:var(--text);font-weight:500;}
 
 /* TIPS GRID */
 .tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);}
-.tip-card{background:var(--bg2);padding:1.25rem;transition:background 0.15s;}
-.tip-card:hover{background:var(--bg3);}
+.tip-card{background:var(--bg2);padding:1.25rem;transition:background 0.15s;}.tip-card:hover{background:var(--bg3);}
 .tip-icon{font-size:1.4rem;margin-bottom:0.6rem;}
 .tip-title{font-weight:500;font-size:0.88rem;color:var(--text);margin-bottom:0.4rem;}
 .tip-desc{font-size:0.8rem;color:var(--text-dim);margin:0;line-height:1.5;}
 
-/* PRESTIGE BLOCK */
-.prestige-block{background:linear-gradient(135deg,rgba(245,158,11,0.06),rgba(192,132,252,0.04));border:1px solid rgba(245,158,11,0.2);padding:1.5rem 2rem;margin:2rem 0;display:flex;gap:1.5rem;align-items:center;}
-.prestige-img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(245,158,11,0.5));flex-shrink:0;}
-.prestige-content{}
-.prestige-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.05em;color:var(--trophy);margin-bottom:0.4rem;}
-.prestige-desc{font-size:0.85rem;color:var(--text-mid);margin:0;}
-
-/* VS BLOCK */
+/* VS GRID */
 .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin:1.5rem 0;}
 .vs-card{background:var(--bg2);padding:1.5rem;}
 .vs-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:0.04em;margin-bottom:1rem;}
-.vs-title.trophy{color:var(--trophy);}
-.vs-title.ranked{color:var(--mythic);}
+.vs-title.trophy{color:var(--trophy);}.vs-title.ranked{color:var(--mythic);}
 .vs-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;}
 .vs-list li{font-size:0.82rem;color:var(--text-dim);padding-left:1rem;position:relative;}
 .vs-list li::before{content:'▸';position:absolute;left:0;color:var(--text-dim);font-size:0.7rem;top:0.15rem;}
 
-/* SECTION LABEL */
 .section-label{font-family:'DM Mono',monospace;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-dim);margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
 .section-label::before{content:'';display:block;width:3px;height:12px;border-radius:2px;background:var(--trophy);}
 
 .guide-footer{margin-top:5rem;padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--text-dim);}
-.footer-nav{display:flex;gap:1.5rem;}
-.footer-nav a{color:var(--text-dim);text-decoration:none;transition:color 0.15s;}
-.footer-nav a:hover{color:var(--text);}
+.footer-nav{display:flex;gap:1.5rem;}.footer-nav a{color:var(--text-dim);text-decoration:none;transition:color 0.15s;}.footer-nav a:hover{color:var(--text);}
 </style>
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-logo">Guides<span>GG</span></a>
-  <a href="index.html" class="nav-back">← Retour</a>
-  <span class="nav-game-tag">Brawl Stars · Trophées</span>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Retour</a>
+    <a href="guide-brawlstars-trophees-en.html" class="lang-link">🇬🇧 EN</a>
+    <span class="nav-game-tag">Brawl Stars · Trophées</span>
+  </div>
 </nav>
 
-<!-- HERO avec image -->
 <section class="hero">
   <div class="hero-image-wrap">
-    <img src="icone_prestige.png" alt="Icône Prestige Brawl Stars" class="hero-image">
+    <img src="icone prestige.png" alt="Icône Prestige Brawl Stars" class="hero-prestige-img">
   </div>
   <div class="hero-content">
-    <div class="mode-note">
-      <strong>Push de Trophées</strong> — différent du mode Ranked (pas de draft, pas de ban/pick)
-    </div>
+    <div class="mode-note"><strong>Push de Trophées</strong> — différent du mode Ranked (pas de draft, pas de ban/pick)</div>
     <h1>PUSH DE TROPHÉES<br><em>GUIDE COMPLET</em> 2025</h1>
     <div class="hero-meta">
-      <div>Mode <span>Trophy Push (Ladder)</span></div>
+      <div>Mode <span>Trophy Ladder</span></div>
       <div>Niveau <span>Tous niveaux</span></div>
       <div>Lecture <span>~10 min</span></div>
       <div>Mis à jour <span>2025</span></div>
@@ -154,7 +127,6 @@ p strong{color:var(--text);font-weight:500;}
   </div>
 </section>
 
-<!-- TOC -->
 <div class="toc">
   <div class="toc-inner">
     <p class="toc-title">// Sommaire</p>
@@ -168,225 +140,93 @@ p strong{color:var(--text);font-weight:500;}
 </div>
 
 <main>
-
-  <!-- INTRO -->
   <div style="margin-bottom:3rem;">
-    <p>Le push de trophées est le système de progression principal de Brawl Stars. Chaque brawler a son propre compteur, et l'objectif est simple : accumuler des trophées pour débloquer des récompenses, atteindre des records personnels, ou viser les leaderboards. Mais depuis les mises à jour de 2024-2025, le système est bien plus stratégique qu'il n'y paraît.</p>
+    <p>Le push de trophées est le système de progression principal de Brawl Stars. Chaque brawler a son propre compteur, et l'objectif est d'accumuler des trophées pour débloquer des récompenses, atteindre des records personnels, ou viser les leaderboards mondiaux. Mais depuis les mises à jour de 2024-2025, le système est bien plus stratégique qu'il n'y paraît.</p>
   </div>
 
-  <!-- CHAPITRE 1 : SYSTÈME -->
+  <!-- CHAPITRE 1 -->
   <div class="chapter" id="systeme">
-    <div class="chapter-header">
-      <span class="chapter-num">01</span>
-      <div class="chapter-info">
-        <p class="chapter-label">// Les bases</p>
-        <h2 class="chapter-title">Le Système de Trophées</h2>
-      </div>
-    </div>
+    <div class="chapter-header"><span class="chapter-num">01</span><div class="chapter-info"><p class="chapter-label">// Les bases</p><h2 class="chapter-title">Le Système de Trophées</h2></div></div>
 
-    <p>Chaque brawler possède son propre compteur de trophées, indépendant des autres. Gagner une partie = gagner des trophées, perdre = en perdre. Mais le ratio gain/perte évolue drastiquement selon le niveau.</p>
+    <p>Chaque brawler possède son propre compteur de trophées, indépendant des autres. Gagner une partie = gagner des trophées, perdre = en perdre. Mais le ratio gain/perte évolue selon les paliers.</p>
 
-    <p class="section-label">Seuils clés à connaître</p>
+    <p class="section-label">Paliers officiels</p>
     <div class="trophy-scale">
-      <div class="scale-row">
-        <span class="scale-range">0 → 1 000 trophées</span>
-        <div class="scale-bar"><div class="scale-fill fill-easy" style="width:100%"></div></div>
-        <span class="scale-label">Tu gagnes plus que tu ne perds ✓</span>
-      </div>
-      <div class="scale-row">
-        <span class="scale-range">1 000 → 1 100</span>
-        <div class="scale-bar"><div class="scale-fill fill-medium" style="width:60%"></div></div>
-        <span class="scale-label">Max Tier atteint — Season Trophies</span>
-      </div>
-      <div class="scale-row">
-        <span class="scale-range">1 100+ trophées</span>
-        <div class="scale-bar"><div class="scale-fill fill-hard" style="width:35%"></div></div>
-        <span class="scale-label">Tu perds plus que tu ne gagnes ✗</span>
-      </div>
-      <div class="scale-row">
-        <span class="scale-range">2 000+ (Prestige 2)</span>
-        <div class="scale-bar"><div class="scale-fill fill-hard" style="width:15%"></div></div>
-        <span class="scale-label">Bot matches désactivés, Win Streak off</span>
-      </div>
+      <div class="scale-row"><span class="scale-range">0 → 250 trophées</span><div class="scale-bar"><div class="scale-fill fill-easy" style="width:100%"></div></div><span class="scale-label">Progression très rapide ✓</span></div>
+      <div class="scale-row"><span class="scale-range">250 → 500</span><div class="scale-bar"><div class="scale-fill fill-easy" style="width:85%"></div></div><span class="scale-label">Facile, bon ratio gain/perte ✓</span></div>
+      <div class="scale-row"><span class="scale-range">500 → 750</span><div class="scale-bar"><div class="scale-fill fill-easy" style="width:70%"></div></div><span class="scale-label">Tu gagnes encore plus que tu ne perds ✓</span></div>
+      <div class="scale-row"><span class="scale-range">750 → 1 000</span><div class="scale-bar"><div class="scale-fill fill-medium" style="width:55%"></div></div><span class="scale-label">Équilibré — adversaires plus forts</span></div>
+      <div class="scale-row"><span class="scale-range">1 000 (Max Tier)</span><div class="scale-bar"><div class="scale-fill fill-medium" style="width:45%"></div></div><span class="scale-label">Palier principal — Season Trophies activées</span></div>
+      <div class="scale-row"><span class="scale-range">1 000 → 2 000</span><div class="scale-bar"><div class="scale-fill fill-hard" style="width:30%"></div></div><span class="scale-label">Tu perds plus que tu ne gagnes ✗</span></div>
+      <div class="scale-row"><span class="scale-range">2 000 (Prestige 2)</span><div class="scale-bar"><div class="scale-fill fill-hard" style="width:20%"></div></div><span class="scale-label">Bot matches off · Win Streak off</span></div>
+      <div class="scale-row"><span class="scale-range">3 000+</span><div class="scale-bar"><div class="scale-fill fill-hard" style="width:10%"></div></div><span class="scale-label">Élite mondiale — très difficile</span></div>
+      <div class="scale-row"><span class="scale-range">Tous les 1 000 après</span><div class="scale-bar"><div class="scale-fill fill-hard" style="width:8%"></div></div><span class="scale-label">Nouveau palier Prestige à chaque millier</span></div>
     </div>
 
-    <div class="hbox">
-      <strong>Le Max Tier :</strong> atteindre 1 000 trophées avec un brawler est l'objectif principal pour la majorité des joueurs. Au-delà, les trophées deviennent des "Season Trophies" qui servent à remplir la Trophy Box — une boîte de récompenses cosmétiques (skins, gems) qui se reset chaque saison.
-    </div>
+    <div class="hbox"><strong>Le Max Tier à 1 000 :</strong> c'est l'objectif principal pour la majorité des joueurs. Au-delà, les trophées deviennent des "Season Trophies" qui remplissent la Trophy Box — une boîte de récompenses cosmétiques (skins, gems) qui se reset chaque saison.</div>
 
-    <!-- PRESTIGE -->
     <div class="prestige-block">
-      <img src="icone_prestige.png" alt="Prestige Brawl Stars" class="prestige-img">
-      <div class="prestige-content">
+      <img src="icone prestige.png" alt="Prestige Brawl Stars" class="prestige-img">
+      <div>
         <p class="prestige-title">Le Système Prestige</p>
-        <p class="prestige-desc">Depuis la mise à jour de 2025, chaque joueur possède un niveau de Prestige visible sous forme de badge sur son profil. Il reflète la progression long terme et la dédicace — contrairement aux trophées qui se reset, le Prestige est une stat permanente. C'est le nouveau symbole de statut dans Brawl Stars.</p>
+        <p class="prestige-desc">Depuis la mise à jour de 2025, chaque joueur possède un niveau de Prestige visible sous forme de badge sur son profil. Un nouveau palier Prestige est débloqué tous les 1 000 trophées au-delà du Max Tier. C'est une stat permanente — contrairement aux trophées qui se resetent, le Prestige reste. C'est le nouveau symbole de statut dans Brawl Stars.</p>
       </div>
     </div>
 
     <p class="section-label">Le nouveau matchmaking MMR</p>
-    <p>Depuis début 2025, le matchmaking ne se base plus uniquement sur les trophées d'un brawler. Un <strong>MMR caché (Matchmaking Rating)</strong> prend en compte ton niveau global de jeu pour équilibrer les parties. Deux joueurs avec le même nombre de trophées ne rencontreront pas forcément les mêmes adversaires selon leur performance réelle.</p>
-    <div class="hbox blue">
-      <strong>Ce que ça change concrètement :</strong> tu peux avoir 800 trophées avec un brawler mais tomber contre des joueurs bien meilleurs que ce que tu attends. Le MMR "se souvient" de ton niveau même si tu changes de brawler.
-    </div>
-
+    <p>Depuis début 2025, le matchmaking ne se base plus uniquement sur les trophées. Un <strong>MMR caché</strong> prend en compte ton niveau global pour équilibrer les parties. Deux joueurs avec le même nombre de trophées ne rencontreront pas forcément les mêmes adversaires selon leur performance réelle.</p>
+    <div class="hbox blue"><strong>Ce que ça change :</strong> tu peux avoir 800 trophées avec un brawler mais tomber contre des joueurs bien meilleurs. Le MMR "se souvient" de ton niveau même quand tu changes de brawler.</div>
   </div>
 
-  <!-- CHAPITRE 2 : MÉTHODES -->
+  <!-- CHAPITRE 2 -->
   <div class="chapter" id="methodes">
-    <div class="chapter-header">
-      <span class="chapter-num">02</span>
-      <div class="chapter-info">
-        <p class="chapter-label">// Progresser efficacement</p>
-        <h2 class="chapter-title">Les Meilleures Méthodes</h2>
-      </div>
-    </div>
+    <div class="chapter-header"><span class="chapter-num">02</span><div class="chapter-info"><p class="chapter-label">// Progresser efficacement</p><h2 class="chapter-title">Les Meilleures Méthodes</h2></div></div>
 
     <div class="rules">
-      <div class="rule-card">
-        <span class="rule-icon">🎮</span>
-        <div class="rule-content">
-          <p class="rule-title">1. Choisir le bon mode selon son brawler</p>
-          <p class="rule-desc"><strong>Solo Showdown</strong> : très efficace pour les joueurs solo — parties rapides, pas de dépendance aux coéquipiers.<br>
-          <strong>Brawl Ball</strong> : excellent avec une équipe organisée, parties courtes et décisives.<br>
-          <strong>Gem Grab</strong> : plus stable et stratégique pour les joueurs expérimentés qui veulent des gains réguliers.<br>
-          Le choix dépend surtout de ton brawler et de la carte disponible — ce n'est pas universel.</p>
-        </div>
-      </div>
-
-      <div class="rule-card">
-        <span class="rule-icon">🗺️</span>
-        <div class="rule-content">
-          <p class="rule-title">2. Adapter son brawler à la carte</p>
-          <p class="rule-desc">C'est le conseil le plus sous-estimé du push. Les joueurs qui montent vite <strong>regardent la rotation des cartes avant de lancer</strong> :<br>
-          — Snipers (Piper, Belle) sur les cartes ouvertes<br>
-          — Tanks (Bull, Frank) sur les cartes fermées et couloirs<br>
-          — Contrôleurs (Sprout, Gene) sur les modes objectifs défensifs</p>
-        </div>
-      </div>
-
-      <div class="rule-card">
-        <span class="rule-icon">👥</span>
-        <div class="rule-content">
-          <p class="rule-title">3. Jouer en équipe au maximum</p>
-          <p class="rule-desc">Le push solo devient très compliqué à haut niveau à cause du MMR. Jouer avec des amis permet une meilleure coordination, des compositions équilibrées et une vraie communication. La majorité des joueurs compétitifs préfèrent <strong>push en trio</strong> pour limiter l'aléatoire.</p>
-        </div>
-      </div>
-
-      <div class="rule-card">
-        <span class="rule-icon">🎯</span>
-        <div class="rule-content">
-          <p class="rule-title">4. Maîtriser quelques brawlers plutôt que tous</p>
-          <p class="rule-desc">Changer constamment de brawler est l'erreur la plus fréquente. À haut niveau, la maîtrise compte plus que le tier du brawler : timings d'attaque, gadgets, supers, positionnement. <strong>Un joueur expert sur 3 brawlers progressera toujours plus vite qu'un joueur moyen sur tout le roster.</strong></p>
-        </div>
-      </div>
-
-      <div class="rule-card">
-        <span class="rule-icon">⚡</span>
-        <div class="rule-content">
-          <p class="rule-title">5. Profiter du Win Streak</p>
-          <p class="rule-desc">Enchaîner plusieurs victoires consécutives donne des trophées bonus. Le Win Streak est désormais lié à chaque brawler individuellement — changer de brawler ne casse plus ta série. Attention : le bonus Win Streak est désactivé au-delà de 2 000 trophées (Prestige 2).</p>
-        </div>
-      </div>
+      <div class="rule-card"><span class="rule-icon">🎮</span><div class="rule-content"><p class="rule-title">1. Choisir le bon mode selon son brawler</p><p class="rule-desc"><strong>Solo Showdown :</strong> très efficace pour les joueurs solo — parties rapides, pas de dépendance aux coéquipiers.<br><strong>Brawl Ball :</strong> excellent avec une équipe organisée, parties courtes et décisives.<br><strong>Gem Grab :</strong> plus stable pour les joueurs expérimentés qui veulent des gains réguliers.<br>Le choix dépend surtout de ton brawler et de la carte disponible.</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🗺️</span><div class="rule-content"><p class="rule-title">2. Adapter son brawler à la carte</p><p class="rule-desc">Les joueurs qui montent vite <strong>regardent la rotation des cartes avant de lancer</strong> :<br>— Snipers (Piper, Belle) sur les cartes ouvertes<br>— Tanks (Bull, Frank) sur les cartes fermées et couloirs<br>— Contrôleurs (Sprout, Gene) sur les modes objectifs défensifs</p></div></div>
+      <div class="rule-card"><span class="rule-icon">👥</span><div class="rule-content"><p class="rule-title">3. Jouer en équipe au maximum</p><p class="rule-desc">Le push solo devient compliqué à haut niveau à cause du MMR. La majorité des joueurs compétitifs préfèrent <strong>push en trio</strong> pour limiter l'aléatoire.</p></div></div>
+      <div class="rule-card"><span class="rule-icon">🎯</span><div class="rule-content"><p class="rule-title">4. Maîtriser quelques brawlers plutôt que tous</p><p class="rule-desc">Changer constamment est l'erreur la plus fréquente. <strong>Un joueur expert sur 3 brawlers progressera toujours plus vite qu'un joueur moyen sur tout le roster.</strong></p></div></div>
+      <div class="rule-card"><span class="rule-icon">⚡</span><div class="rule-content"><p class="rule-title">5. Profiter du Win Streak</p><p class="rule-desc">Enchaîner plusieurs victoires consécutives donne des trophées bonus. Attention : le bonus Win Streak est désactivé au-delà de 2 000 trophées (Prestige 2).</p></div></div>
     </div>
 
-    <div class="hbox green">
-      <strong>Le secret des meilleurs pushers :</strong> ils analysent la rotation des cartes au début de chaque session et choisissent leur brawler en fonction — pas l'inverse. La carte dicte le brawler, pas la préférence personnelle.
-    </div>
-
+    <div class="hbox green"><strong>Le secret des meilleurs pushers :</strong> ils analysent la rotation des cartes au début de chaque session et choisissent leur brawler en fonction. La carte dicte le brawler, pas la préférence personnelle.</div>
   </div>
 
-  <!-- CHAPITRE 3 : MENTAL -->
+  <!-- CHAPITRE 3 -->
   <div class="chapter" id="mental">
-    <div class="chapter-header">
-      <span class="chapter-num">03</span>
-      <div class="chapter-info">
-        <p class="chapter-label">// La partie invisible</p>
-        <h2 class="chapter-title">Gestion Mentale</h2>
-      </div>
-    </div>
+    <div class="chapter-header"><span class="chapter-num">03</span><div class="chapter-info"><p class="chapter-label">// La partie invisible</p><h2 class="chapter-title">Gestion Mentale</h2></div></div>
 
-    <p>Le push de trophées est autant une question de mental que de skill. Les longues séries de défaites — le "tilt" — peuvent effacer des heures de progression en quelques parties.</p>
+    <p>Le push est autant une question de mental que de skill. Les longues séries de défaites — le "tilt" — peuvent effacer des heures de progression en quelques parties.</p>
 
     <div class="tips-grid">
-      <div class="tip-card">
-        <div class="tip-icon">🛑</div>
-        <p class="tip-title">Arrête après 2-3 défaites</p>
-        <p class="tip-desc">C'est la règle la plus importante. Continuer en tilt = perdre beaucoup plus vite que tu ne gagnes. Pose le jeu, reviens plus tard.</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🔄</div>
-        <p class="tip-title">Change de mode ou de brawler</p>
-        <p class="tip-desc">Si un mode ne fonctionne pas ce soir, change. Si un brawler te fait perdre, switch. La flexibilité protège ta progression.</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">📊</div>
-        <p class="tip-title">Définis un objectif de session</p>
-        <p class="tip-desc">"+50 trophées ce soir" vaut mieux que "je joue jusqu'à ce que je gagne". Un objectif clair t'empêche de sur-jouer.</p>
-      </div>
-      <div class="tip-card">
-        <div class="tip-icon">🧘</div>
-        <p class="tip-title">Le reset de saison est ton ami</p>
-        <p class="tip-desc">Les brawlers au-dessus de 1 000 trophées sont reset à 1 000 à chaque saison. Ça signifie que les erreurs passées ne pèsent pas indéfiniment.</p>
-      </div>
+      <div class="tip-card"><div class="tip-icon">🛑</div><p class="tip-title">Arrête après 2-3 défaites</p><p class="tip-desc">C'est la règle la plus importante. Continuer en tilt = perdre beaucoup plus vite que tu ne gagnes. Pose le jeu, reviens plus tard.</p></div>
+      <div class="tip-card"><div class="tip-icon">🔄</div><p class="tip-title">Change de mode ou de brawler</p><p class="tip-desc">Si un mode ne fonctionne pas ce soir, change. Si un brawler te fait perdre, switch. La flexibilité protège ta progression.</p></div>
+      <div class="tip-card"><div class="tip-icon">📊</div><p class="tip-title">Définis un objectif de session</p><p class="tip-desc">"+50 trophées ce soir" vaut mieux que "je joue jusqu'à ce que je gagne". Un objectif clair t'empêche de sur-jouer.</p></div>
+      <div class="tip-card"><div class="tip-icon">🧘</div><p class="tip-title">Le reset de saison est ton ami</p><p class="tip-desc">Les brawlers au-dessus de 1 000 trophées sont reset à 1 000 chaque saison. Les erreurs passées ne pèsent pas indéfiniment.</p></div>
     </div>
 
-    <div class="hbox red" style="margin-top:1.5rem;">
-      <strong>Attention au MMR après une mauvaise série :</strong> même si tu quittes le jeu et reviens, ton MMR garde en mémoire tes performances récentes. Mieux vaut finir une session sur une victoire que sur 5 défaites.
-    </div>
-
+    <div class="hbox red" style="margin-top:1.5rem;"><strong>Attention au MMR après une mauvaise série :</strong> même si tu quittes et reviens, ton MMR garde en mémoire tes performances récentes. Mieux vaut finir une session sur une victoire.</div>
   </div>
 
-  <!-- CHAPITRE 4 : VS RANKED -->
+  <!-- CHAPITRE 4 -->
   <div class="chapter" id="vs">
-    <div class="chapter-header">
-      <span class="chapter-num">04</span>
-      <div class="chapter-info">
-        <p class="chapter-label">// Deux systèmes différents</p>
-        <h2 class="chapter-title">Trophées vs Ranked</h2>
-      </div>
-    </div>
+    <div class="chapter-header"><span class="chapter-num">04</span><div class="chapter-info"><p class="chapter-label">// Deux systèmes différents</p><h2 class="chapter-title">Trophées vs Ranked</h2></div></div>
 
-    <p>Beaucoup de joueurs confondent push de trophées et mode Ranked. Ce sont deux systèmes complètement séparés avec des règles, des objectifs et des stratégies différents.</p>
+    <p>Beaucoup de joueurs confondent push de trophées et mode Ranked. Ce sont deux systèmes complètement séparés.</p>
 
     <div class="vs-grid">
-      <div class="vs-card">
-        <p class="vs-title trophy">🏆 Push de Trophées</p>
-        <ul class="vs-list">
-          <li>Pas de draft, pas de ban/pick</li>
-          <li>Pas de composition d'équipe imposée</li>
-          <li>Progress brawler par brawler</li>
-          <li>Reset mensuel au-dessus de 1 000</li>
-          <li>Objectif : records personnels, leaderboards</li>
-          <li>Accessible à tous les niveaux</li>
-          <li>Win Streak bonus activé (sous 2 000)</li>
-        </ul>
-      </div>
-      <div class="vs-card">
-        <p class="vs-title ranked">⚔️ Mode Ranked</p>
-        <ul class="vs-list">
-          <li>Phase de ban + phase de pick (draft)</li>
-          <li>Composition d'équipe stratégique</li>
-          <li>Progression par rangs (Bronze → Légendaire)</li>
-          <li>Saisons avec récompenses exclusives</li>
-          <li>Objectif : rang le plus haut possible</li>
-          <li>Plus stratégique et exigeant</li>
-          <li>Pas de Win Streak bonus</li>
-        </ul>
-      </div>
+      <div class="vs-card"><p class="vs-title trophy">🏆 Push de Trophées</p><ul class="vs-list"><li>Pas de draft, pas de ban/pick</li><li>Pas de composition imposée</li><li>Progress brawler par brawler</li><li>Reset mensuel au-dessus de 1 000</li><li>Paliers tous les 250 jusqu'à 1 000</li><li>Prestige tous les 1 000 ensuite</li><li>Objectif : records, leaderboards</li><li>Win Streak bonus actif (sous 2 000)</li></ul></div>
+      <div class="vs-card"><p class="vs-title ranked">⚔️ Mode Ranked</p><ul class="vs-list"><li>Phase de ban + phase de pick (draft)</li><li>Composition d'équipe stratégique</li><li>Progression par rangs (Bronze → Légendaire)</li><li>Saisons avec récompenses exclusives</li><li>Objectif : rang le plus haut possible</li><li>Plus stratégique et exigeant</li><li>Pas de Win Streak bonus</li></ul></div>
     </div>
 
-    <div class="hbox">
-      <strong>Lequel choisir ?</strong> Si tu veux prouver ton skill collectif et travailler la stratégie de draft → <strong style="color:var(--mythic)">Ranked</strong>. Si tu veux progresser en solo, battre tes records personnels ou viser les leaderboards mondiaux → <strong style="color:var(--trophy)">Push de trophées</strong>. Les deux systèmes coexistent et beaucoup de joueurs pratiquent les deux.
-    </div>
-
+    <div class="hbox"><strong>Lequel choisir ?</strong> Tu veux prouver ton skill collectif et travailler la stratégie → <strong style="color:var(--mythic)">Ranked</strong>. Tu veux progresser solo, battre tes records ou viser les leaderboards → <strong style="color:var(--trophy)">Push de trophées</strong>.</div>
   </div>
 
-  <!-- CONCLUSION -->
   <div style="background:var(--bg2);border:1px solid var(--border);padding:2rem;margin-top:1rem;">
     <p style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.04em;color:var(--trophy);margin-bottom:0.75rem;">En résumé</p>
-    <p>Le push de trophées en 2025 est bien plus stratégique qu'avant. Le MMR, les seuils à 1 000 / 1 100 / 2 000 trophées, et la rotation des cartes changent tout. Les joueurs qui progressent le plus vite sont ceux qui <strong>choisissent leurs modes intelligemment, maîtrisent peu de brawlers, jouent en équipe, et savent quand s'arrêter.</strong></p>
+    <p>Le push de trophées en 2025 est bien plus stratégique qu'avant. Le MMR, les paliers à 250 / 500 / 750 / 1 000 puis tous les milliers, et la rotation des cartes changent tout. Les joueurs qui progressent le plus vite choisissent leurs modes intelligemment, maîtrisent peu de brawlers, jouent en équipe, et savent quand s'arrêter.</p>
   </div>
-
 </main>
 
 <footer class="guide-footer">
@@ -397,6 +237,5 @@ p strong{color:var(--text);font-weight:500;}
     <a href="guide-minecraft-survie.html">Guide Minecraft</a>
   </nav>
 </footer>
-
 </body>
 </html>
